@@ -1,0 +1,74 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <title>Sidebar</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <aside class="h-screen w-64 bg-gradient-to-b from-green-700 to-blue-700 text-white flex flex-col fixed md:relative z-30">
+      <!-- Logo and Heading -->
+      <div class="flex items-center px-4 py-6 border-b border-white/20">
+        <div class="w-16 h-16 flex-shrink-0">
+          <a href="/"><img src="{% static 'images/logo.png' %}" class="w-full h-full object-contain" alt="Logo" /></a>
+        </div>
+        <div class="ml-4">
+          <div class="text-xl font-bold leading-tight">WEALTH</div>
+          <div class="text-xl font-bold leading-tight">ORDER</div>
+          <div class="text-white/80 text-xs">FINANCIAL FREEDOM</div>
+        </div>
+      </div>
+      <!-- Menu Items -->
+      <nav class="flex-1 overflow-y-auto">
+        <ul class="mt-4 space-y-1">
+          <li>
+            <a href="/" class="flex items-center px-6 py-3 bg-gradient-to-r from-green-700 to-blue-400 rounded-lg text-white gap-3">
+              <i class="fa-solid fa-table-cells-large"></i>
+              <span class="font-semibold">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/mutual-funds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>★</span> Mutual Funds</a>
+          </li>
+          <li>
+            <a href="/api-funds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📁</span> Funds</a>
+          </li>
+          <li>
+            <a href="/stocks" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📈</span> Stocks</a>
+          </li>
+          <li>
+            <a href="/bonds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📄</span> Bonds</a>
+          </li>
+          <li>
+            <a href="/mlds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📊</span> Market Linked Debentures</a>
+          </li>
+          <li>
+            <a href="/fixed-deposits" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>💲</span> Fixed Deposits</a>
+          </li>
+          <li>
+            <a href="/post-office" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📫</span> Post Office Schemes</a>
+          </li>
+          <li>
+            <a href="/insurance" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>🛡️</span> Insurance Plans</a>
+          </li>
+          <li>
+            <a href="/aifs" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📊</span> AIFs</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Footer -->
+      <div class="px-6 py-4 border-t border-white/20">
+        <a href="/calculators" class="flex items-center hover:underline gap-3">
+          <span>📱</span>
+          Calculators
+        </a>
+      </div>
+    </aside>
+    <!-- Responsive overlay for mobile (optional) -->
+    <div class="md:hidden block h-16"></div>
+  </body>
+</html>

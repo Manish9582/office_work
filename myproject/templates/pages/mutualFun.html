@@ -1,0 +1,73 @@
+<div class="grid grid-cols-12 w-full select-none">
+  <div class="col-start-1 col-end-3">
+    {% include 'components/leftside.html' %}
+  </div>
+  <div class="col-start-3 col-end-13">
+    <div class="col-start-3 col-end-13">
+      {% include 'components/navbar.html' %}
+    </div>
+    {% comment %}start dashboard code{% endcomment %}
+    <div class="bg-gray-100 p-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between">
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold text-green-700">Good evening, {{ user_name }}!</h1>
+            <p class="text-gray-600">Welcome to your investment dashboard. Here's a summary of your portfolio.</p>
+          </div>
+          <!-- CTA -->
+          <div>
+            <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block">🌱 START INVESTING</a>
+          </div>
+        </div>
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- funds -->
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">📈</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Total Funds</h2>
+            </div>
+            <div class="text-md text-green-800 font-bold my-2.5 ">12</div>
+            <div class="text-gray-700 text-lg font-semibold">Available mutual funds</div>
+          </div>
+
+          <!-- average value -->
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">📊</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Avg NAV</h2>
+            </div>
+            <div class="text-md font-bold text-green-800 my-2.5">₹59.65</div>
+            <div class="text-gray-700 text-lg font-semibold">Annual returns (est.)</div>
+          </div>
+
+          <!-- returns -->
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">⚖</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Expected Returns</h2>
+            </div>
+            <div class="text-md text-green-800 font-bold mt-2">10-15%</div>
+            <div class="text-white bg-green-700 font-bold my-3 text-sm rounded-[7px] w-[fit-content] px-3 py-2">+2.5%</div>
+            <div class="text-gray-700 text-lg font-semibold">Annual expected returns</div>
+          </div>
+
+          {% comment %}medium risk{% endcomment %}
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">⚖</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Risk Level</h2>
+            </div>
+            <div class="text-md text-green-800 font-bold mt-2">Medium</div>
+            <div class="text-gray-700 text-lg font-semibold">Balance risk profile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% comment %}start dashboard code{% endcomment %}
+  </div>
+</div>
+
+
+
+

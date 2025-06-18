@@ -1,0 +1,126 @@
+<div class="h-[100vh] w-full grid grid-cols-12 overflow-hidden">
+  <div class="col-start-1 col-end-3 overflow-hidden overflow-y-auto">
+    {% include 'components/leftside.html' %}
+  </div>
+  <div class="col-start-3 col-end-13 h-[100%] overflow-hidden overflow-y-scroll">
+    <div class="w-full">
+      {% include 'components/navbar.html' %}
+    </div>
+    <div class="bg-gray-100 p-3 h-auto w-full">
+      <div class="w-full px-4 mx-auto">
+        <div class="flex justify-between">
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold text-green-700">Good evening, Manish !</h1>
+            <p class="text-gray-600">Welcome to your investment dashboard. Here's a summary of your portfolio.</p>
+          </div>
+          <!-- CTA -->
+          <div>
+            <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block">🌱 START INVESTING</a>
+          </div>
+        </div>
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Portfolio Value -->
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">📈</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Portfolio Value</h2>
+            </div>
+            <div class="text-3xl text-green-800 font-bold">₹1.5L</div>
+            <div class="text-white bg-green-700 font-bold my-3 text-sm rounded-[7px] w-[fit-content] px-3 py-2">+2.5%</div>
+            <div class="text-xs text-gray-500">Across all products</div>
+          </div>
+
+          <!-- Expected Returns -->
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">📊</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Expected Returns</h2>
+            </div>
+            <div class="text-3xl font-bold text-green-800">₹150,000</div>
+            <div class="text-white bg-green-700 font-bold my-3 text-sm rounded-[7px] w-[fit-content] px-3 py-2">+12.5%</div>
+            <div class="text-xs text-gray-500">Annual returns (est.)</div>
+          </div>
+
+          <!-- Risk Profile -->
+          <div class="bg-white rounded-xl shadow p-6 border-t-4 border-b-4 border-green-700">
+            <div class="flex items-center mb-3">
+              <p class="text-3xl">⚖</p>
+              <h2 class="text-sm text-gray-500 uppercase font-semibold">Risk Profile</h2>
+            </div>
+            <div class="text-3xl text-green-800 font-bold mt-2">Moderate</div>
+            <div class="text-sm text-gray-500 my-3">Balance</div>
+            <div class="text-xs text-gray-500">Review quarterly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-100 p-6 font-sans w-[100%]">
+      <!-- Personal Advisory -->
+      <div class="w-full mx-auto mb-6 bg-white shadow-md flex justify-between items-center p-4 rounded-md">
+        <div class="rounded-lg">
+          <h2 class="text-purple-700 font-bold text-lg underline">📍 <a href="#">Personal Advisory</a></h2>
+          <p class="text-sm text-gray-600 mt-1">Get expert financial advice from our certified advisors</p>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <a href="#" class="text-green-600 hover:underline">💬 Live Chat</a>
+            <a href="#" class="text-pink-600 hover:underline">📞 Voice Call</a>
+            <a href="#" class="text-blue-600 hover:underline">📹 Video Call</a>
+          </div>
+          <div class="mt-2 text-[20px] font-bold">Investment Products</div>
+        </div>
+        <div>
+          <a href="" class="text-green-600 underline">Show All Advisory</a>
+        </div>
+      </div>
+
+      <!-- Investment Products -->
+      <div class="w-full mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Mutual Funds Card -->
+          <div class="bg-white shadow-md rounded-lg p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold text-gray-700">📊 Mutual Funds</h3>
+              <span class="text-sm text-gray-500">25 available</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Professionally managed investment funds that pool money from multiple investors.</p>
+
+            <div class="mt-4">
+              <p class="text-sm text-gray-600">Expected Returns</p>
+              <p class="text-2xl font-bold text-green-500">10–15%</p>
+            </div>
+
+            <div class="mt-2">
+              <p class="text-sm text-gray-600">Risk Level</p>
+              <!-- Placeholder for risk level content -->
+            </div>
+
+            <div class="mt-4 bg-gray-100 p-3 rounded-lg">
+              <p class="text-sm text-gray-700">
+                Featured: <strong>SBI Bluechip Fund</strong>
+              </p>
+              <a href="#" class="mt-2 inline-block text-white bg-blue-500 px-3 py-1 rounded hover:bg-blue-600 text-sm">Explore Mutual Funds</a>
+            </div>
+          </div>
+
+          <!-- Fixed Deposits Card -->
+          <div class="bg-white shadow-md rounded-lg p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold text-gray-700">🏦 Fixed Deposits</h3>
+              <span class="text-sm text-gray-500">15 available</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Secure investments with fixed interest rates and guaranteed returns.</p>
+            <div>
+              <p class="mt-6 mb-2 text-xl font-bold text-gray-600">Expected Returns</p>
+              <p class="text-green-700 text-3xl font-bold">6-8%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Products -->
+      <div class="text-center mt-6">
+        <a href="#" class="text-blue-600 hover:underline text-sm">View all products</a>
+      </div>
+    </div>
+  </div>
+</div>
