@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex items-center justify-center font-sans">
+  <div class="bg-white shadow-2xl rounded-2xl flex w-[1000px] max-w-6xl overflow-hidden">
+    
+    <!-- Left Side -->
+    <div class="bg-gradient-to-b from-indigo-500 to-blue-500 text-white p-10 w-1/2 flex flex-col items-center justify-center">
+      <div class="text-6xl mb-4">🧑‍💼</div>
+      <h2 class="text-3xl font-bold mb-2">Join Admin Team</h2>
+      <p class="text-center text-sm">Create your admin account to manage the wealth management platform and help users achieve their financial goals.</p>
+    </div>
+
+    <!-- Right Side -->
+    <div class="p-10 w-1/2">
+      <div class="flex flex-col">
+        <div class="flex items-center mb-6">
+          <div class="bg-indigo-100 text-indigo-600 p-2 rounded-full mr-3 font-bold">W</div>
+          <h2 class="text-2xl font-bold">Wealth Order</h2>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Admin Registration</h3>
+        <p class="text-sm text-gray-500 mb-6">Create your admin account to get started</p>
+
+        <form method="POST" action="#">
+          {% csrf_token %}
+
+          <label class="text-sm text-gray-700 font-medium">Full Name</label>
+          <input type="text" name="full_name" placeholder="Enter your full name" class="w-full mt-1 mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+
+          <div class="flex gap-4 mb-4">
+            <div class="w-1/2">
+              <label class="text-sm text-gray-700 font-medium">Username</label>
+              <input type="text" name="username" placeholder="admin_username" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+            </div>
+            <div class="w-1/2">
+              <label class="text-sm text-gray-700 font-medium">Email Address</label>
+              <input type="email" name="email" placeholder="admin@wealthorder.com" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="w-1/2">
+              <label class="text-sm text-gray-700 font-medium">Password</label>
+              <input type="password" name="password" placeholder="••••••••" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+            </div>
+            <div class="w-1/2">
+              <label class="text-sm text-gray-700 font-medium">Confirm Password</label>
+              <input type="password" name="confirm_password" placeholder="••••••••" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 rounded-lg font-semibold shadow-md hover:from-indigo-600 hover:to-purple-700">
+            🚀 CREATE ADMIN ACCOUNT
+          </button>
+        </form>
+
+        <p class="text-sm text-center mt-6 text-gray-600">
+          Already have an admin account?
+          <a href="{% url 'login' %}" class="text-indigo-600 hover:underline">Login here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

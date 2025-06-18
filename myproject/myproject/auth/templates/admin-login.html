@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex items-center justify-center font-sans">
+  <div class="bg-white shadow-2xl rounded-2xl flex w-[900px] max-w-6xl overflow-hidden">
+    
+    <!-- Left side -->
+    <div class="bg-gradient-to-b from-indigo-500 to-blue-500 text-white p-10 w-1/2 flex flex-col items-center justify-center">
+      <div class="text-6xl mb-4">🛡️</div>
+      <h2 class="text-3xl font-bold mb-2">Admin Portal</h2>
+      <p class="text-center text-sm">Secure access to manage users, monitor activities, and oversee the wealth management platform.</p>
+    </div>
+
+    <!-- Right side -->
+    <div class="p-10 w-1/2">
+      <div class="flex flex-col">
+        <div class="flex items-center mb-6">
+          <div class="bg-indigo-100 text-indigo-600 p-2 rounded-full mr-3 font-bold">W</div>
+          <h2 class="text-2xl font-bold">Wealth Order</h2>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Admin Login</h3>
+        <p class="text-sm text-gray-500 mb-6">Welcome back! Please login to your account</p>
+
+        <form method="POST" action="#">
+          {% csrf_token %}
+          <label class="text-sm text-gray-700 font-medium">Email Address</label>
+          <input type="email" name="email" placeholder="example@email.com" class="w-full mt-1 mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+
+          <label class="text-sm text-gray-700 font-medium">Password</label>
+          <input type="password" name="password" placeholder="••••••••" class="w-full mt-1 mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+
+          <div class="flex items-center justify-between mb-4">
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="form-checkbox text-indigo-600">
+              <span class="ml-2 text-sm text-gray-700">Remember me</span>
+            </label>
+            <a href="#" class="text-sm text-indigo-600 hover:underline">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 rounded-lg font-semibold shadow-md hover:from-indigo-600 hover:to-purple-700">
+            🔒 LOGIN TO ADMIN PANEL
+          </button>
+        </form>
+
+        <p class="text-sm text-center mt-6 text-gray-600">
+          Don't have an admin account?
+          <a href="{% url 'register' %}" class="text-indigo-600 hover:underline">Register here</a>
+        </p>
+
+        <p class="text-xs text-center mt-4 text-gray-400">© 2025 Wealth Order. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
