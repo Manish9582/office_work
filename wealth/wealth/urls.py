@@ -25,4 +25,6 @@ urlpatterns = [
     path('mutual-funds/',views.mutual_funds),
     path('user/',include('verify.urls')),
     path('justtry/',views.justtry),
+    path('user_page/',include('userinfo.urls')),
+    path('admin_page/',include('admininfo.urls')),
 ]
