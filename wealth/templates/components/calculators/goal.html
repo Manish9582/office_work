@@ -1,0 +1,45 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="{% static 'css/hideScrollbar.css' %}" />
+    {% tailwind_css %}
+  </head>
+  <body class="bg-gradient-to-r from-green-100 via-blue-100 to-yellow-100 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+      <h1 class="text-3xl font-bold text-blue-700 mb-6 text-center">Goal Planning Calculator</h1>
+
+      <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div>
+          <label class="block text-green-800 font-semibold">Target Amount ($)</label>
+          <input type="number" name="goal_amount" required class="w-full p-2 border border-green-300 rounded" />
+        </div>
+
+        <div>
+          <label class="block text-yellow-800 font-semibold">Years to Achieve Goal</label>
+          <input type="number" name="years" required class="w-full p-2 border border-yellow-300 rounded" />
+        </div>
+
+        <div>
+          <label class="block text-blue-800 font-semibold">Expected Annual Return (%)</label>
+          <input type="number" step="0.01" name="annual_return" required class="w-full p-2 border border-blue-300 rounded" />
+        </div>
+
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded">Calculate</button>
+      </form>
+
+      {% if result %}
+        <div class="mt-6 text-center">
+          <p class="text-xl font-semibold text-yellow-700">Monthly Investment Required:</p>
+          <p class="text-3xl font-bold text-blue-800 mt-2">${{ result }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

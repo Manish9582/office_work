@@ -34,3 +34,8 @@ def global_nav_context(request):
 
 def mutual_funds(request):
     return render(request, "pages/mutualFun.html")
+
+
+
+def justtry(request):
+    return render(request, "components/calculators/goal.html")
