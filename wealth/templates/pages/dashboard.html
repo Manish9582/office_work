@@ -1,5 +1,5 @@
-<div class="h-[100vh] w-full grid grid-cols-12 overflow-hidden">
-  <div class="col-start-1 col-end-3 overflow-hidden overflow-y-auto">
+<div class="h-[100vh] w-full grid grid-cols-12 custom-scrollbar">
+  <div class="col-start-1 col-end-3 custom-scrollbar overflow-y-auto">
     {% include 'components/leftside.html' %}
   </div>
   <div class="col-start-3 col-end-13 h-[100%] overflow-hidden overflow-y-scroll">
@@ -122,5 +122,14 @@
         <a href="#" class="text-blue-600 hover:underline text-sm">View all products</a>
       </div>
     </div>
+
+    <!--footer start -->
+    <div>
+      {% include 'components/footer.html' %}
+    </div>
+    <!--footer end-->
+
+    
   </div>
 </div>
+

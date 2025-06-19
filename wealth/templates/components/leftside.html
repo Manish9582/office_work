@@ -5,16 +5,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Sidebar</title>
+    <link rel="stylesheet" href="{% static 'css/hideScrollbar.css' %}" />
     {% tailwind_css %}
   </head>
   <body>
-    <aside class="h-screen w-64 bg-gradient-to-b from-green-700 to-blue-700 text-white flex flex-col fixed md:relative z-30">
+    <aside class="w-64 bg-gradient-to-b from-green-700 to-blue-700 text-white flex flex-col fixed md:relative z-30">
       <!-- Logo and Heading -->
       <div class="flex items-center px-4 py-6 border-b border-white/20">
         <div class="w-16 h-16 flex-shrink-0">
-          <a href="/"><img src="{% static 'images/logo.png' %}" class="w-full h-full object-contain" alt="Logo" /></a>
+          <a href="/"><img src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?cs=srgb&dl=pexels-couleur-2317904.jpg&fm=jpg" class="w-full h-full object-contain rounded-full" alt="Logo" /></a>
         </div>
         <div class="ml-4">
           <div class="text-xl font-bold leading-tight">WEALTH</div>
@@ -25,50 +26,110 @@
       <!-- Menu Items -->
       <nav class="flex-1 overflow-y-auto">
         <ul class="mt-4 space-y-1">
-          <li>
-            <a href="/" class="flex items-center px-6 py-3 bg-gradient-to-r from-green-700 to-blue-400 rounded-lg text-white gap-3">
-              <i class="fa-solid fa-table-cells-large"></i>
-              <span class="font-semibold">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="/mutual-funds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>★</span> Mutual Funds</a>
-          </li>
-          <li>
-            <a href="/api-funds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📁</span> Funds</a>
-          </li>
-          <li>
-            <a href="/stocks" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📈</span> Stocks</a>
-          </li>
-          <li>
-            <a href="/bonds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📄</span> Bonds</a>
-          </li>
-          <li>
-            <a href="/mlds" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📊</span> Market Linked Debentures</a>
-          </li>
-          <li>
-            <a href="/fixed-deposits" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>💲</span> Fixed Deposits</a>
-          </li>
-          <li>
-            <a href="/post-office" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📫</span> Post Office Schemes</a>
-          </li>
-          <li>
-            <a href="/insurance" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>🛡️</span> Insurance Plans</a>
-          </li>
-          <li>
-            <a href="/aifs" class="flex items-center px-6 py-3 hover:bg-white/10 rounded-lg gap-3"><span>📊</span> AIFs</a>
-          </li>
+          {% for item in nav_items %}
+            <li>
+              <a href="{{ item.url }}"
+                class="flex items-center px-6 py-3 rounded-lg gap-3
+                  {% if item.highlight %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                    bg-gradient-to-r from-green-700 to-blue-400 text-white
+
+
+
+
+
+
+
+
+                {% else %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                      hover:bg-white/10 text-white
+
+
+
+
+
+
+
+
+                {% endif %}">
+                {{ item.icon|safe }}
+                <span class="font-semibold">{{ item.label }}</span>
+              </a>
+            </li>
+          {% endfor %}
         </ul>
+
+        <div>
+          <!-- Calculators -->
+          <div class="px-6 py-4 border-t border-white/20" id="calculators_Mein">
+            <p class="flex items-center hover:underline gap-3 cursor-pointer">
+              <span>📱</span>
+              Calculators
+            </p>
+          </div>
+          <div id="calculatorsDatas">
+            <ul class="mt-4 space-y-1" id="calculatorsDatas">
+              {% for item in calculators %}
+                <li>
+                  <a href="{{ item.url }}"
+                    class="flex items-center px-6 py-3 rounded-lg gap-3
+              {% if item.highlight %}
+                      
+                      
+                      
+                      
+                      
+                    
+                    
+              
+              bg-gradient-to-r from-green-700 to-blue-400 text-white
+              
+
+
+
+
+
+
+
+                    {% else %}
+                      
+                      
+                      
+                      
+                      
+                    
+                    
+              
+              hover:bg-white/10 text-white
+
+
+
+
+
+                    {% endif %}">
+                    {{ item.icon|safe }}
+                    <span class="font-semibold">{{ item.name }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
       </nav>
-      <!-- Footer -->
-      <div class="px-6 py-4 border-t border-white/20">
-        <a href="/calculators" class="flex items-center hover:underline gap-3">
-          <span>📱</span>
-          Calculators
-        </a>
-      </div>
     </aside>
-    <!-- Responsive overlay for mobile (optional) -->
-    <div class="md:hidden block h-16"></div>
-  </body>
-</html>
+

@@ -1,14 +1,4 @@
-<div class="h-[100vh] w-full grid grid-cols-12 custom-scrollbar">
-  <div class="col-start-1 col-end-3 custom-scrollbar overflow-y-auto">
-    {% include 'components/leftside.html' %}
-  </div>
-  <div class="col-start-3 col-end-13 h-[100%] overflow-hidden overflow-y-scroll">
-    <div class="w-full">
-      {% include 'components/navbar.html' %}
-    </div>
-
-    <!-- mutual funds start -->
-    <div class="bg-gray-100 p-6">
+<div class="bg-gray-100 p-6">
       <div class="max-w-6xl mx-auto">
         <div class="flex justify-between">
           <div class="mb-6">
@@ -28,7 +18,7 @@
               <p class="text-3xl">📈</p>
               <h2 class="text-sm text-gray-500 uppercase font-semibold">Total Funds</h2>
             </div>
-            <div class="text-md text-green-800 font-bold my-2.5">12</div>
+            <div class="text-md text-green-800 font-bold my-2.5 ">12</div>
             <div class="text-gray-700 text-lg font-semibold">Available mutual funds</div>
           </div>
 
@@ -65,12 +55,3 @@
         </div>
       </div>
     </div>
-    <!-- mutual funds end -->
-
-    <!-- footer start -->
-    <div>
-      {% include 'components/footer.html' %}
-    </div>
-    <!-- footer end -->
-  </div>
-</div>

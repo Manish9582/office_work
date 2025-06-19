@@ -1,0 +1,49 @@
+{% load static %}
+<footer class="bg-blue-800 text-white">
+  <div class="w-full mx-auto grid grid-cols-6 pt-10 gap-6 px-12 items-center">
+    <!-- Email Sign-up Section -->
+    <div class="col-start-1 col-end-4">
+      <h2 class="text-3xl md:text-4xl font-semibold leading-snug mb-6">We bake emails too.<br />Sign up to receive<br /> the latest news.</h2>
+      <form class="flex items-center gap-2 border-b border-white py-2 w-full px-1">
+        <input type="email" placeholder="Email Address" class="bg-transparent text-white placeholder-gray-300 flex-1 outline-none" />
+        <button type="submit" class="text-white text-xl"><i class="fas fa-arrow-right bg-white text-blue-900 p-2 rounded-full"></i></button>
+      </form>
+      <div class="flex space-x-4 mt-6 text-white text-2xl">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter fa-rotate-180"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+      <p class="text-xs text-gray-300 mt-6">Levain Bakery All Rights Reserved {{ now|date:'Y' }}</p>
+    </div>
+
+    <!-- Link Section 1 -->
+    <div class="flex justify-between col-start-5 col-end-7">
+      <div class="space-y-2">
+        <a href="#" class="block hover:underline">GET IN TOUCH</a>
+        <a href="#" class="block hover:underline">JOIN OUR TEAM</a>
+        <a href="#" class="block hover:underline">ABOUT</a>
+        <a href="#" class="block hover:underline">FAQ</a>
+        <a href="#" class="block hover:underline">TERMS OF USE</a>
+      </div>
+
+      <!-- Link Section 2 -->
+      <div class="space-y-2">
+        <a href="#" class="block hover:underline">COOKIE CLUB</a>
+        <a href="#" class="block hover:underline">MERCH</a>
+        <a href="#" class="block hover:underline">TERMS OF SERVICE</a>
+        <a href="#" class="block hover:underline">SHIPPING</a>
+        <a href="#" class="block hover:underline">PRIVACY</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="pt-5 pb-1">
+    <div class="border-t border-b border-white py-4 text-center text-xs text-white">All rights reserved © Conceptial 2025</div>
+  </div>
+</footer>
+
+<script src={% static 'js/home.js' %}></script>
+</body>
+</html>
