@@ -1,9 +1,15 @@
-<div class="w-full sticky top-0 z-40">
+{% load static %}
+<div class="w-full sticky top-0 z-50">
   <!-- Navigation Bar -->
-  <nav class="bg-white shadow-md py-3 px-6 flex items-center justify-between">
+  <nav class="bg-white shadow-md py-3 px-6 flex items-center justify-between gap-5 xl:px-10">
     <!-- Left Section -->
     <div class="flex items-center space-x-2">
-      <span class="font-bold text-gray-800">Wealth order</span>
+      <span class="font-bold text-gray-800 xl:block sm:hidden text-2xl">Wealth order</span>
+      <div class="items-center xl:hidden">
+        <div class="w-[80px] h-[80px]">
+          <img src="{% static 'images/wealth.png' %}" alt="Wealth" class="w-full h-full object-cover rounded-full" />
+        </div>
+      </div>
     </div>
 
     <!-- Center Search -->
@@ -17,28 +23,41 @@
     </div>
 
     <!-- Right Section -->
-    <div class="w-[200px] flex items-center justify-between">
-      <div class="relative inline-block">
-        <div class="text-2xl p-1">🔔</div>
-        <div class="absolute top-0 right-0 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs transform -translate-y-1/4 translate-x-1/4 ring-2 ring-white">3</div>
-      </div>
-
-      <div>
-        {% if 20 == 10 %}
-          <div class="font-medium py-1 px-3 rounded-full text-sm flex items-center gap-1">
-            <div class="w-[35px] h-[35px] border-2 rounded-full"></div>
-            <div>
-              <p>Krish mehra</p>
-              <p>active investor</p>
+    <div class="xl:block sm:hidden lg:hidden md:hidden">
+      <div class="xl:w-[200px] xl:flex items-center justify-between">
+        <div class="relative">
+          <div class="text-2xl p-1">🔔</div>
+          <div class="absolute top-0 right-0 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs transform -translate-y-1/4 translate-x-1/4 ring-2 ring-white">3</div>
+        </div>
+        <div>
+          {% if 20 == 10 %}
+            <div class="font-medium py-1 px-3 rounded-full text-sm flex items-center gap-1">
+              <div class="w-[35px] h-[35px] border-2 rounded-full"></div>
+              <div>
+                <p>Krish mehra</p>
+                <p>active investor</p>
+              </div>
+              <div>
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
             </div>
-            <div>
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-          </div>
-        {% else %}
-          <a href="/user/login" class="font-bold text-md bg-green-700 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition duration-300 ease-in-out scale-250">Login</a>
-        {% endif %}
+          {% else %}
+            <a href="/user/login" class="font-bold text-md bg-green-700 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition duration-300 ease-in-out scale-250">Login</a>
+          {% endif %}
+        </div>
       </div>
+    </div>
+    <!-- Mobile View -->
+    <div>
+      {% if 20 == 10 %}
+        <div class="xl:hidden sm:block lg:block md:block text-2xl">
+          <a href="/user/login"><i class="fa-solid fa-user-plus"></i></a>
+        </div>
+      {% else %}
+        <div class="text-2xl" id="showNavbar">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      {% endif %}
     </div>
   </nav>
 </div>
