@@ -1,5 +1,5 @@
-<div class="h-[100vh] w-full xl:grid grid-cols-12">
-  <div class="xl:col-start-1 xl:col-end-3 h-[100%] overflow-y-auto scrollbar-colored ss:hidden sm:hidden md:hidden lg:hidden xl:block" id="showNavbar">
+<div class="h-[100vh] w-full xl:grid grid-cols-12 relative">
+  <div class="xl:col-start-1 xl:col-end-3  hideSomthing hidden xl:block" id="showNavbarMobile">
     <div>
       {% include 'components/leftside.html' %}
     </div>
@@ -10,14 +10,14 @@
     </div>
     <div class="bg-gray-100 p-3 h-auto w-full">
       <div class="w-full px-4 mx-auto">
-        <div class="flex justify-between">
-          <div class="mb-6">
+        <div class="sm:flex mb-4 justify-between items-center  gap-6">
+          <div class="mb-6 text-center md:text-start">
             <h1 class="text-2xl font-bold text-green-700">Good evening, Manish !</h1>
             <p class="text-gray-600">Welcome to your investment dashboard. Here's a summary of your portfolio.</p>
           </div>
           <!-- CTA -->
-          <div>
-            <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block">🌱 START INVESTING</a>
+          <div class="text-center">
+            <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
           </div>
         </div>
         <!-- Cards -->
@@ -130,5 +130,33 @@
       {% include 'components/footer.html' %}
     </div>
     <!-- footer end -->
+  </div>
+
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/retirementplan.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/goal.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/loan.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/rdcal.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/futrecal.html' %}
+  </div>
+
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden ">
+    {% include 'components/calculators/salary.html' %}
+  </div>
+
+   <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/capital.html' %}
+  </div>
+
+   <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/surrender.html' %}
   </div>
 </div>

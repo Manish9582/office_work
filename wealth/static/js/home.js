@@ -13,8 +13,13 @@ const showtoggalCal=()=>{
 
 
 // let showNavbar=document.querySelector('#showNavbar')
-let showNavbar=document.querySelector('#showNavbar')
-console.log(showNavbar)
+let showNavbar=document.querySelector('#showNavbarData')
+let showNavbarMobile=document.querySelector('#showNavbarMobile');
 showNavbar.addEventListener('click',function(){
-    console.log('click')
+    showNavbarMobile.style.display='block';
+    })
+
+let closeNavbarMobile=document.querySelector('#closeNavbarMobile');
+closeNavbarMobile.addEventListener('click',function(){
+    showNavbarMobile.style.display='none';
 })

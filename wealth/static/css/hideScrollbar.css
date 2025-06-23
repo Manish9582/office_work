@@ -43,6 +43,7 @@
   background: #047100;
   width: 5px;
   height: 10px;
+  scroll-behavior: smooth;
 }
 
 /* Handle on hover */
@@ -50,4 +51,8 @@
   background: #484ef1;
   border-radius: 10px;
 
+}
+
+.nothingScroll {
+  overflow: hidden;
 }

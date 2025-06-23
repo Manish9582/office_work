@@ -4,7 +4,7 @@
   <nav class="bg-white shadow-md py-3 px-6 flex items-center justify-between gap-5 xl:px-10">
     <!-- Left Section -->
     <div class="flex items-center space-x-2">
-      <span class="font-bold text-gray-800 xl:block sm:hidden text-2xl">Wealth order</span>
+      <span class="font-bold text-gray-800 xl:block sm:hidden text-2xl hideSomthing">Wealth order</span>
       <div class="items-center xl:hidden">
         <div class="w-[80px] h-[80px]">
           <img src="{% static 'images/wealth.png' %}" alt="Wealth" class="w-full h-full object-cover rounded-full" />
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Center Search -->
-    <div class="flex-1 max-w-xl mx-4">
+    <div class="flex-1 max-w-xl mx-4 hideSomthing">
       <div class="relative">
         <input type="text" placeholder="Search investments, funds, bond" class="w-full py-2 px-4 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
         <svg class="w-5 h-5 absolute left-3 top-2.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Right Section -->
-    <div class="xl:block sm:hidden lg:hidden md:hidden">
+    <div class="xl:block sm:hidden lg:hidden md:hidden hideSomthing">
       <div class="xl:w-[200px] xl:flex items-center justify-between">
         <div class="relative">
           <div class="text-2xl p-1">🔔</div>
@@ -48,13 +48,13 @@
       </div>
     </div>
     <!-- Mobile View -->
-    <div>
+    <div class="xl:hidden sm:block lg:block md:block">
       {% if 20 == 10 %}
         <div class="xl:hidden sm:block lg:block md:block text-2xl">
           <a href="/user/login"><i class="fa-solid fa-user-plus"></i></a>
         </div>
       {% else %}
-        <div class="text-2xl" id="showNavbar">
+        <div class="text-2xl" id="showNavbarData">
           <i class="fa-solid fa-bars-staggered"></i>
         </div>
       {% endif %}

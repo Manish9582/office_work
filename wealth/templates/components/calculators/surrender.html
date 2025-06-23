@@ -1,0 +1,47 @@
+<div class="bg-gradient-to-r from-green-100 via-blue-100 to-yellow-100 min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <h1 class="text-3xl font-bold text-blue-700 mb-6 text-center">Surrender Value Calculator</h1>
+
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+      <div>
+        <label class="block font-semibold text-green-800">Sum Assured (₹)</label>
+        <input type="number" name="sum_assured" step="0.01" required class="w-full p-2 border border-green-300 rounded">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-blue-800">Premium Paid Per Year (₹)</label>
+        <input type="number" name="premium" step="0.01" required class="w-full p-2 border border-blue-300 rounded">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-yellow-800">Years Paid</label>
+        <input type="number" name="years_paid" required class="w-full p-2 border border-yellow-300 rounded">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-green-800">Policy Term (Years)</label>
+        <input type="number" name="policy_term" required class="w-full p-2 border border-green-300 rounded">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-blue-800">Bonus Accumulated (₹)</label>
+        <input type="number" name="bonus" step="0.01" value="0" class="w-full p-2 border border-blue-300 rounded">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-yellow-800">Surrender Value Factor (%)</label>
+        <input type="number" name="sv_factor" step="0.1" required class="w-full p-2 border border-yellow-300 rounded">
+      </div>
+
+      <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded">Calculate</button>
+    </form>
+
+    {% if surrender_value is not None %}
+      <div class="mt-6 text-center">
+        <p class="text-xl font-semibold text-yellow-700">Estimated Surrender Value:</p>
+        <p class="text-3xl font-bold text-blue-800 mt-2">₹{{ surrender_value }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>

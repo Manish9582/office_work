@@ -8,30 +8,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Sidebar</title>
     <link rel="stylesheet" href="{% static 'css/hideScrollbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reponsive.css' %}" />
     {% tailwind_css %}
   </head>
   <body>
-    <section class="h-full w-full bg-gradient-to-b from-green-700 to-blue-700 text-white flex flex-col fixed md:relative
-    ">
-      <!-- Logo and Heading -->
-      <div class="flex items-center px-2 py-6 border-b border-white/20 sticky top-0 z-40">
-        <div class="w-16 h-16 flex-shrink-0">
-          <a href="/"><img src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?cs=srgb&dl=pexels-couleur-2317904.jpg&fm=jpg" class="w-full h-full object-contain rounded-full" alt="Logo" /></a>
+    <div>
+      <section class="h-screen w-full bg-gradient-to-b from-green-700 to-blue-700 text-white flex flex-col fixed md:relative hideSomthing">
+        <!-- Logo and Heading -->
+        <div class="px-2 py-4.5 border-b border-white/20 sticky top-0 z-40">
+          <div class="flex justify-between">
+            <div class="flex items-center">
+              <div class="w-[80px] h-[80px] flex-shrink-0">
+                <a href="/"><img src="{% static 'images/wealth.png' %}" class="w-full h-full object-contain rounded-full" alt="Logo" /></a>
+              </div>
+              <div class="ml-4">
+                <div class="text-xl font-bold leading-tight">WEALTH</div>
+                <div class="text-xl font-bold leading-tight">ORDER</div>
+                <div class="text-white/80 text-xs">FINANCIAL FREEDOM</div>
+              </div>
+            </div>
+            <div id="closeNavbarMobile" class="text-2xl cursor-pointer px-4 xl:hidden md:block sm:block lg:block">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
         </div>
-        <div class="ml-4">
-          <div class="text-xl font-bold leading-tight">WEALTH</div>
-          <div class="text-xl font-bold leading-tight">ORDER</div>
-          <div class="text-white/80 text-xs">FINANCIAL FREEDOM</div>
-        </div>
-      </div>
-      <!-- Menu Items -->
-      <nav class="flex-1 h-[60vh] overflow-y-auto scrollbar-colored bg-gradient-to-b from-green-700 to-blue-700">
-        <ul class="mt-4 space-y-1">
-          {% for item in nav_items %}
-            <li>
-              <a href="{{ item.url }}"
-                class="flex items-center px-6 py-3 rounded-lg gap-3
+        <!-- Menu Items -->
+        <nav class="flex-1 h-[60vh] overflow-y-auto scrollbar-colored bg-gradient-to-b from-green-700 to-blue-700">
+          <ul class="mt-4 space-y-1">
+            {% for item in nav_items %}
+              <li>
+                <a href="{{ item.url }}"
+                  class="flex items-center px-6 py-3 rounded-lg gap-3
                   {% if item.highlight %}
+                    
+                  
+                  
+                  
                   
                   
                   
@@ -49,7 +61,15 @@
 
 
 
-                {% else %}
+
+
+
+
+                  {% else %}
+                    
+                  
+                  
+                  
                   
                   
                   
@@ -67,29 +87,37 @@
 
 
 
-                {% endif %}">
-                {{ item.icon|safe }}
-                <span class="font-semibold">{{ item.label }}</span>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
 
-        <div class="">
-          <!-- Calculators -->
-          <div class="px-6 py-4 border-t border-white/20" onclick="showtoggalCal()">
-            <p class="flex items-center gap-3 cursor-pointer font-semibold">
-              <span>📱</span>
-              All Calculators
-            </p>
-          </div>
-          <div id="calculatorsDatas" class="hidden">
-            <ul class=" ">
-              {% for item in calculators %}
-                <li>
-                  <a href="{{ item.url }}"
-                    class="flex items-center px-6 py-3 rounded-lg gap-3
+
+
+
+                  {% endif %}">
+                  {{ item.icon|safe }}
+                  <span class="font-semibold">{{ item.label }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+
+          <div class="">
+            <!-- Calculators -->
+            <div class="px-6 py-4 border-t border-white/20" onclick="showtoggalCal()">
+              <p class="flex items-center gap-3 cursor-pointer font-semibold">
+                <span>📱</span>
+                All Calculators
+              </p>
+            </div>
+            <div id="calculatorsDatas" class="hidden">
+              <ul class="">
+                {% for item in calculators %}
+                  <li onclick="{{ item.function }}">
+                    <a href="{{ item.url }}"
+                      class="flex items-center px-6 py-3 rounded-lg gap-3
               {% if item.highlight %}
+                        
+                      
+                      
+                      
                       
                       
                       
@@ -107,7 +135,15 @@
 
 
 
-                    {% else %}
+
+
+
+
+                      {% else %}
+                        
+                      
+                      
+                      
                       
                       
                       
@@ -122,15 +158,21 @@
 
 
 
-                    {% endif %}">
-                    {{ item.icon|safe }}
-                    <span class="font-semibold">{{ item.name }}</span>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </section>
 
+
+
+
+                      {% endif %}">
+                      {{ item.icon|safe }}
+                      <span class="font-semibold">{{ item.name }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </div>
+  </body>
+</html>

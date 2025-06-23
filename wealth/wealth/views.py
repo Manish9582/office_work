@@ -17,14 +17,14 @@ def global_nav_context(request):
         {'url': '/aifs', 'icon': '📊', 'label': 'AIFs'}
     ]
     calculators = [
-        {'name': 'Retirement Planning', 'icon': '🏠'},
-        {'name': 'Loan Calculator', 'icon': '🏡'},
-        {'name': 'Goal Planning', 'icon': '🎯'},
-        {'name': 'RD Calculator', 'icon': '💰'},
-        {'name': 'Future Money', 'icon': '📈'},
-        {'name': 'Salary Calculator', 'icon': '💼'},
-        {'name': 'Capital Gain', 'icon': '📊'},
-        {'name': 'Surrender Value', 'icon': '🛡️'},
+        {'name': 'Retirement Planning', 'icon': '🏠','function':'RetirementPlan()'},
+        {'name': 'Loan Calculator', 'icon': '🏡' ,'function':'LoanCalculator()'},
+        {'name': 'Goal Planning', 'icon': '🎯' ,'function':'GoalPlanning()'},
+        {'name': 'RD Calculator', 'icon': '💰','function':'RDCalculator()'},
+        {'name': 'Future Money', 'icon': '📈','function':'FutureMoneyCalculator()'},
+        {'name': 'Salary Calculator', 'icon': '💼','function':'SalaryCalculator()'},
+        {'name': 'Capital Gain', 'icon': '📊','function':'CapitalGainCalculator()'},
+        {'name': 'Surrender Value', 'icon': '🛡️','function':'SurrenderValueCalculator()'},
     ]
     return {
         'nav_items': nav_items,
