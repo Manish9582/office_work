@@ -9,9 +9,9 @@
       {% include 'components/navbar.html' %}
     </div>
 
-    <!-- mutual funds start -->
-    <div class="bg-gray-100 p-6">
-      <div class="max-w-6xl mx-auto">
+    <!-- mutual funds section start -->
+    <div class="bg-gray-5 py-6 px-10">
+      <div class="w-full">
         <div class="flex justify-between">
           <div class="mb-6">
             <h1 class="text-2xl font-bold text-green-700">Good evening, {{ user_name }}!</h1>
@@ -66,8 +66,83 @@
           </div>
         </div>
       </div>
+
+      <!-- start mutual funds -->
+      <div class="py-8">
+        <div class="flex justify-between">
+          <div class="font-bold text-3xl">Popular Mutual Funds</div>
+          <div class="text-blue-700 font-bold text-xl">View All Funds</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:scale-3d">
+            <div class="p-6 bg-gray-50">
+              <p class="mb-4 text-[25px] font-bold h-[40px] text-nowrap text-ellipsis overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nihil quis reiciendis nostrum non, fugiat sed voluptatem reprehenderit alias. Sapiente.</p>
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">Mutual Fund</span>
+            </div>
+            <div class="border-t border-gray-200 p-6">
+              <div class="mb-4">
+                <p class="font-medium text-gray-500 text-[18px]">Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-gray-100 p-4 rounded-2xl">
+                    <p class="text-sm text-gray-500 w-full">Fund House</p>
+                    <p class="font-medium text-green-700 w-full">Axios Mutual Fund</p>
+                  </div>
+                  <div class="bg-gray-100 p-4 rounded-2xl">
+                    <p class="text-sm text-gray-500">Latest NAV</p>
+                    <p class="font-medium text-green-700">₹ 0.0</p>
+                  </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-2xl">
+                  <p class="text-sm text-gray-500">1Y Returns</p>
+                  <p class="font-medium text-green-700">N/A</p>
+                </div>
+                <div class="text-center bg-blue-900 py-2 rounded-[7px]">
+                  <a href="" class="text-white font-semibold">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end mutual funds -->
+
+      <!-- start mutual funds category -->
+      <div class="pb-8">
+        <div class="font-bold text-3xl">Funds categories</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:scale-3d">
+            <div class="p-6 bg-gray-50">
+              <p class="mb-4 text-[25px] font-bold h-[40px] text-nowrap text-ellipsis overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nihil quis reiciendis nostrum non, fugiat sed voluptatem reprehenderit alias. Sapiente.</p>
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">Mutual Fund</span>
+            </div>
+            <div class="border-t border-gray-200 p-6">
+              <div class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-gray-100 p-4 rounded-2xl">
+                    <p class="text-sm text-gray-500 w-full">Expected Returns</p>
+                    <p class="font-medium text-green-700 w-full">Axios Mutual Fund</p>
+                  </div>
+                  <div class="bg-gray-100 p-4 rounded-2xl">
+                    <p class="text-sm text-gray-500">Risk Level</p>
+                    <p class="font-medium text-green-700">₹ 0.0</p>
+                  </div>
+                </div>
+                <div class="text-center bg-blue-900 py-2 rounded-[7px]">
+                  <a href="" class="text-white font-semibold">Explore Funds</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end mutual funds category -->
     </div>
-    <!-- mutual funds end -->
+    <!-- mutual funds section end -->
 
     <!-- footer start -->
     <div>

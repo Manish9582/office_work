@@ -1,0 +1,152 @@
+{% load static %}
+<div class="h-[100vh] w-full xl:grid grid-cols-12">
+  <div class="xl:col-start-1 xl:col-end-3 h-[100%] overflow-y-auto scrollbar-colored ss:hidden sm:hidden md:hidden lg:hidden xl:block" id="showNavbar">
+    <div>
+      {% include 'components/leftside.html' %}
+    </div>
+  </div>
+  <div class="xl:col-start-3 xl:col-end-13 h-[100%] overflow-y-scroll">
+    <!-- start navbar -->
+    <div class="w-full">
+      {% include 'components/navbar.html' %}
+    </div>
+    <!-- end navbar -->
+
+    <!-- start contents -->
+    <div class="bg-gray-100 px-12">
+      <div class="sm:flex py-8 justify-between items-center gap-6">
+        <div class="mb-6 text-center md:text-start">
+          <p class="bg-[linear-gradient(to_right,green,blue)] bg-clip-text text-transparent text-3xl font-bold">Government & Corporate Bonds</p>
+          <p class="text-gray-600">Secure fixed-income with predictable returns</p>
+        </div>
+        <!-- CTA -->
+        <div class="text-center">
+          <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
+        </div>
+      </div>
+
+      <div class="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Total Bond Holdings -->
+        <div class="bg-white rounded-xl shadow p-4 border-t-4 border-green-600">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="{% static '/images/icon/stockgraph.jpg' %}" alt="icon" class="w-[70px] h-[70px]" />
+            <h2 class="text-gray-700 text-sm font-semibold">TOTAL BOND HOLDINGS</h2>
+          </div>
+          <p class="text-2xl text-green-700 font-bold">₹</p>
+          <p class="mt-5 text-green-600 mb-3 border border-green-900 w-fit px-3 py-2 rounded-md text-md font-bold bg-green-100">+%</p>
+          <span class="text-sm text-gray-500">Since last quarter</span>
+        </div>
+
+        <!-- Average Yield -->
+        <div class="bg-white rounded-xl shadow p-4 border-t-4 border-blue-600">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="{% static '/images/icon/stockdoller.jpg' %}" alt="icon" class="w-[70px] h-[70px]" />
+            <h2 class="text-gray-700 text-sm font-semibold">AVERAGE YIELD</h2>
+          </div>
+          <p class="text-2xl text-green-700 font-bold">%</p>
+          <p class="mt-5 text-green-600 mb-3 border border-green-900 w-fit px-3 py-2 rounded-md text-md font-bold bg-green-100">+%</p>
+          <span class="text-sm text-gray-500">Annual reurns (est.)</span>
+        </div>
+
+        <!-- Maturity Period -->
+        <div class="bg-white rounded-xl shadow p-4 border-t-4 border-orange-500">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="{% static '/images/icon/stockwatch.jpg' %}" alt="icon" class="w-[70px] h-[70px]" />
+            <h2 class="text-gray-700 text-sm font-semibold">MATURITY PERIOD</h2>
+          </div>
+          <p class="text-2xl text-green-700 font-bold">5 years</p>
+          <p class="text-sm text-gray-500 mt-1">Average maturity</p>
+        </div>
+
+        <!-- Risk Profile -->
+        <div class="bg-white rounded-xl shadow p-4 border-t-4 border-yellow-500 h-[230px]">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="{% static '/images/icon/stockweigtingscal.jpg' %}" alt="icon" class="w-[70px] h-[70px]" />
+            <h2 class="text-gray-700 text-sm font-semibold">RISK PROFILE</h2>
+          </div>
+          <p class="text-gray-800 font-semibold">Balanced portfolio</p>
+        </div>
+      </div>
+      <!-- Bond Categories Section -->
+      <div class="w-full mt-8">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">Bond Categories</h2>
+          <a href="#" class="text-sm text-blue-600 hover:underline">View all</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Government Bonds Card -->
+          <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white flex items-center justify-center h-[150px] font-semibold text-lg">
+              <p>Government Bonds</p>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-800 font-medium mb-1">Government Bonds</p>
+              <p class="text-sm text-gray-500 mb-4">Safest investment with government backing</p>
+              <div class="flex justify-between text-sm mb-4">
+                <div>
+                  <p class="text-gray-500">Expected Returns</p>
+                  <p class="text-green-600 font-semibold">6–8%</p>
+                </div>
+                <div>
+                  <p class="text-gray-500">Risk Level</p>
+                  <p class="text-gray-600 font-semibold">Very Low</p>
+                </div>
+              </div>
+              <a href="#" class="block w-full text-center bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-semibold text-sm">Explore Government Bonds →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bond Categories Section -->
+
+      <!-- Available Bonds Section -->
+      <div class="w-full mt-8 pb-7 ">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">Available Bonds</h2>
+          <span class="text-sm text-green-600 font-medium">43 bonds available</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Bond Card 1 -->
+          <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white flex items-center justify-center h-[150px] font-semibold text-lg">
+              <p>KERALA</p>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-800 text-sm mb-2">08.95% KERALA INFRASTRUCTURE INVESTMENT F...</p>
+              <div class="flex justify-between text-sm mb-2">
+                <div>
+                  <p class="text-gray-500">Coupon Rate</p>
+                  <p class="text-green-600 font-semibold">8.95%</p>
+                </div>
+                <div>
+                  <p class="text-gray-500">Maturity</p>
+                  <p class="text-gray-600 font-semibold">—</p>
+                </div>
+              </div>
+              <div class="flex justify-between text-sm mb-4">
+                <div>
+                  <p class="text-gray-500">Face Value</p>
+                  <p class="text-gray-800 font-semibold">₹1.00 L</p>
+                </div>
+                <div>
+                  <p class="text-gray-500">Risk Level</p>
+                  <p class="text-gray-600 font-semibold">Medium-High</p>
+                </div>
+              </div>
+              <a href="#" class="block w-full text-center bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-semibold text-sm">View Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end contents -->
+
+    <!-- footer start -->
+    <div>
+      {% include 'components/footer.html' %}
+    </div>
+    <!-- footer end -->
+  </div>
+</div>

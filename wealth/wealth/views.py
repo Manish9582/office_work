@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+def justtry(request):
+    return render(request, "components/calculators/goal.html")
+
 def deshboard(request):
     return render(request, "pages/dashboard.html")
 
@@ -10,7 +13,7 @@ def global_nav_context(request):
         {'url': '/api-funds', 'icon': '📁', 'label': 'Funds'},
         {'url': '/stocks', 'icon': '📈', 'label': 'Stocks'},
         {'url': '/bonds', 'icon': '📄', 'label': 'Bonds'},
-        {'url': '/mlds', 'icon': '📊', 'label': 'Market Linked Debentures'},
+        {'url': '/market', 'icon': '📊', 'label': 'Market Linked Debentures'},
         {'url': '/fixed-deposits', 'icon': '💲', 'label': 'Fixed Deposits'},
         {'url': '/post-office', 'icon': '📫', 'label': 'Post Office Schemes'},
         {'url': '/insurance', 'icon': '🛡️', 'label': 'Insurance Plans'},
@@ -35,7 +38,26 @@ def global_nav_context(request):
 def mutual_funds(request):
     return render(request, "pages/mutualFun.html")
 
+def fixed_deposit(request):
+    return render(request, "pages/fixeddeposit.html")
 
+def post_office(request):
+    return render(request, "pages/postoffice.html")
 
-def justtry(request):
-    return render(request, "components/calculators/goal.html")
+def insurance(request):
+    return render(request, "pages/insurance.html")
+
+def aif(request):
+    return render(request, "pages/aif.html")
+
+def funds(request):
+    return render(request, "pages/funds.html")
+
+def stocks(request):
+    return render(request, "pages/stocks.html")
+
+def bonds(request):
+    return render(request, "pages/bonds.html")
+
+def market(request):
+    return render(request, "pages/market.html")
