@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-def home(request):
-    return render(request, "home.html")
+def adminpanel(request):
+    return render(request, "admin-panel.html")
+
+def adminchat(request):
+    return render(request,"chat-admin.html")

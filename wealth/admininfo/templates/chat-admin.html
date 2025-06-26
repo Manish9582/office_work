@@ -1,426 +1,162 @@
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wealth Order - Admin Chat Panel</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    {% tailwind_css %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <style>
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .message-time {
-            font-size: 11px;
-            opacity: 0.7;
-        }
-        .user-status-online {
-            background: #10b981;
-        }
-        .user-status-offline {
-            background: #6b7280;
-        }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .message-time {
+        font-size: 11px;
+        opacity: 0.7;
+      }
+      .user-status-online {
+        background: #10b981;
+      }
+      .user-status-offline {
+        background: #6b7280;
+      }
     </style>
-</head>
-<body class="bg-gray-900 text-white font-sans">
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
     <div class="flex h-screen">
-        <!-- Sidebar -->
-        <div class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
-            <!-- Header -->
-            <div class="p-4 border-b border-gray-700">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">W</span>
-                    </div>
-                    <span class="text-xl font-semibold">Wealth Order</span>
-                </div>
+      <!-- Sidebar -->
+      <div class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
+        <!-- Header -->
+        <div class="p-4 border-b border-gray-700">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-lg">W</span>
             </div>
-            
-            <!-- User List Header -->
-            <div class="p-4 border-b border-gray-700">
-                <div class="flex items-center space-x-3 mb-3">
-                    <i class="fas fa-users text-gray-400"></i>
-                    <span class="font-medium">User List</span>
-                </div>
-                <div class="relative">
-                    <input 
-                        type="text" 
-                        placeholder="Search users..."
-                        class="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
-                        id="searchInput"
-                    >
-                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400 text-sm"></i>
-                </div>
-            </div>
-            
-            <!-- User List -->
-            <div class="flex-1 overflow-y-auto scrollbar-hide" id="userList">
-                <!-- Active User -->
-                <div class="user-item bg-teal-600 p-4 cursor-pointer border-b border-gray-700" data-user="asmodeus23">
-                    <div class="flex items-center space-x-3">
-                        <div class="relative">
-                            <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
-                                <span class="text-white font-medium">A</span>
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center justify-between">
-                                <span class="font-medium truncate">asmodeus23 Mehra</span>
-                                <span class="text-xs bg-teal-700 px-2 py-1 rounded-full">1</span>
-                            </div>
-                            <div class="text-sm text-teal-200 truncate">Processing...</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Other Users -->
-                <div class="user-item p-4 cursor-pointer border-b border-gray-700 hover:bg-gray-700" data-user="john_doe">
-                    <div class="flex items-center space-x-3">
-                        <div class="relative">
-                            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                                <span class="text-white font-medium">J</span>
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center justify-between">
-                                <span class="font-medium truncate">John Doe</span>
-                            </div>
-                            <div class="text-sm text-gray-400 truncate">Available for chat</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="user-item p-4 cursor-pointer border-b border-gray-700 hover:bg-gray-700" data-user="sarah_wilson">
-                    <div class="flex items-center space-x-3">
-                        <div class="relative">
-                            <div class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                                <span class="text-white font-medium">S</span>
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-offline rounded-full border-2 border-gray-800"></div>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center justify-between">
-                                <span class="font-medium truncate">Sarah Wilson</span>
-                                <span class="text-xs bg-red-600 px-2 py-1 rounded-full">3</span>
-                            </div>
-                            <div class="text-sm text-gray-400 truncate">Investment query pending</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="user-item p-4 cursor-pointer border-b border-gray-700 hover:bg-gray-700" data-user="mike_chen">
-                    <div class="flex items-center space-x-3">
-                        <div class="relative">
-                            <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-                                <span class="text-white font-medium">M</span>
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center justify-between">
-                                <span class="font-medium truncate">Mike Chen</span>
-                            </div>
-                            <div class="text-sm text-gray-400 truncate">Portfolio review needed</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <span class="text-xl font-semibold">Wealth Order</span>
+          </div>
         </div>
-        
-        <!-- Main Chat Area -->
-        <div class="flex-1 flex flex-col">
-            <!-- Chat Header -->
-            <div class="bg-gray-800 border-b border-gray-700 p-4">
+
+        <!-- User List Header -->
+        <div class="px-3 my-3">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="font-medium text-xl">Chats</span>
+          </div>
+          <div class="relative my-3 px-2.5 flex items-center border border-gray-500 justify-between rounded-md">
+            <!-- Visible input with proper focus handling -->
+            <input type="text" placeholder="Search users..." class="text-[18px] w-full border-none border-gray-300 rounded-lg p-2 outline-none" /> <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+        <!-- User List -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide" id="userList">
+          <!-- Active User -->
+          <div class="user-item bg-teal-600 p-4 cursor-pointer border-b border-gray-700" data-user="asmodeus23">
+            <div class="flex items-center space-x-3">
+              <div class="relative">
+                <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-medium">A</span>
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
+              </div>
+              <div class="flex-1 min-w-0">
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <div class="relative">
-                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-                                <span class="text-white font-medium text-lg">A</span>
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold" id="chatUserName">asmodeus23 Mehra</h2>
-                            <div class="flex items-center space-x-2 text-sm">
-                                <span class="text-green-400">● Online</span>
-                                <span class="text-gray-400">• Unlimited Chat</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                        <!-- Call Button -->
-                        <button class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-phone text-white"></i>
-                        </button>
-                        
-                        <!-- Video Call Button -->
-                        <button class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-video text-white"></i>
-                        </button>
-                        
-                        <!-- Delete Chat Button -->
-                        <button class="w-12 h-12 bg-red-700 hover:bg-red-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-trash text-white"></i>
-                        </button>
-                        
-                        <!-- Settings -->
-                        <button class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-cog text-white"></i>
-                        </button>
-                    </div>
+                  <span class="font-medium truncate">asmodeus23 Mehra</span>
+                  <span class="text-xs bg-teal-700 px-2 py-1 rounded-full">1</span>
                 </div>
+                <div class="text-sm text-teal-200 truncate">Processing...</div>
+              </div>
             </div>
-            
-            <!-- Chat Messages -->
-            <div class="flex-1 overflow-y-auto scrollbar-hide p-4 space-y-4" id="chatMessages">
-                <!-- User Message -->
-                <div class="flex items-start space-x-3">
-                    <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-white text-sm font-medium">a</span>
-                    </div>
-                    <div class="flex-1">
-                        <div class="bg-gray-700 rounded-lg px-4 py-3 max-w-md">
-                            <p class="text-white">hi sir</p>
-                        </div>
-                        <div class="message-time text-gray-400 mt-1">04:37 pm</div>
-                    </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Chat Area -->
+      <div class="flex-1 flex flex-col">
+        <!-- Chat Header -->
+        <div class="bg-gray-800 border-b border-gray-700 p-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="relative">
+                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-medium text-lg">A</span>
                 </div>
-                
-                <!-- Admin Message -->
-                <div class="flex items-start space-x-3 justify-end">
-                    <div class="flex-1 flex justify-end">
-                        <div class="bg-teal-600 rounded-lg px-4 py-3 max-w-md">
-                            <p class="text-white">Hello! How can I assist you with your investment portfolio today?</p>
-                        </div>
-                    </div>
-                    <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-white text-sm font-medium">A</span>
-                    </div>
+                <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
+              </div>
+              <div>
+                <h2 class="text-xl font-semibold" id="chatUserName">asmodeus23 Mehra</h2>
+                <div class="flex items-center space-x-2 text-sm">
+                  <span class="text-green-400">● Online</span>
                 </div>
-                <div class="flex justify-end">
-                    <div class="message-time text-gray-400 mt-1 mr-11">04:38 pm</div>
-                </div>
+              </div>
             </div>
-            
+
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-phone text-white"></i>
+              </div>
+              <div class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-video text-white"></i>
+              </div>
+              <div class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
+                <p class="font-bold text-xl">M</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide p-4 space-y-4" id="chatMessages">
+          <!-- User Message -->
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-medium">a</span>
+            </div>
+            <div class="flex-1">
+              <div class="bg-gray-700 rounded-lg px-4 py-3 max-w-md">
+                <p class="text-white">hi sir</p>
+              </div>
+              <div class="message-time text-gray-400 mt-1">04:37 pm</div>
+            </div>
+          </div>
+
+          <!-- Admin Message -->
+          <div class="flex items-start space-x-3 justify-end">
+            <div class="flex-1 flex justify-end">
+              <div class="bg-teal-600 rounded-lg px-4 py-3 max-w-md">
+                <p class="text-white">Hello! How can I assist you with your investment portfolio today?</p>
+              </div>
+            </div>
+            <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-medium">A</span>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="message-time text-gray-400 mt-1 mr-11">04:38 pm</div>
+          </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="bg-gray-800 border-t border-gray-700 p-4">
+          <div class="flex items-center space-x-3">
+            <!-- Attachment Button -->
+            <button class="w-10 h-10 bg-teal-600 hover:bg-teal-700 rounded-lg flex items-center justify-center"><i class="fas fa-paperclip text-white"></i></button>
+
             <!-- Message Input -->
-            <div class="bg-gray-800 border-t border-gray-700 p-4">
-                <div class="flex items-center space-x-3">
-                    <!-- Attachment Button -->
-                    <button class="w-10 h-10 bg-teal-600 hover:bg-teal-700 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-paperclip text-white"></i>
-                    </button>
-                    
-                    <!-- Message Input -->
-                    <div class="flex-1 relative">
-                        <input 
-                            type="text" 
-                            placeholder="Type your message..."
-                            class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-teal-500"
-                            id="messageInput"
-                        >
-                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white">
-                            <i class="fas fa-smile"></i>
-                        </button>
-                    </div>
-                    
-                    <!-- Send Button -->
-                    <button 
-                        class="w-12 h-12 bg-teal-600 hover:bg-teal-700 rounded-lg flex items-center justify-center"
-                        id="sendButton"
-                    >
-                        <i class="fas fa-paper-plane text-white"></i>
-                    </button>
-                </div>
-                
-                <!-- Test Send Button -->
-                <div class="mt-3 flex justify-center">
-                    <button class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-white font-medium">
-                        <i class="fas fa-vial mr-2"></i>Test Send
-                    </button>
-                </div>
+            <div class="flex-1 relative">
+              <input type="text" placeholder="Type your message..." class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-teal-500" id="messageInput" />
+              <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"><i class="fas fa-smile"></i></button>
             </div>
+
+            <!-- Send Button -->
+            <button class="w-12 h-12 bg-teal-600 hover:bg-teal-700 rounded-lg flex items-center justify-center" id="sendButton"><i class="fas fa-paper-plane text-white"></i></button>
+          </div>
         </div>
-        
-        <!-- Admin Profile -->
-        <div class="absolute top-4 right-4 flex items-center space-x-3">
-            <div class="relative">
-                <div class="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center">
-                    <span class="text-white font-medium">A</span>
-                </div>
-                <div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
-                    <span class="text-white text-xs">3</span>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    
-    <script>
-        // Sample chat data
-        const chatData = {
-            'asmodeus23': [
-                { type: 'user', message: 'hi sir', time: '04:37 pm', avatar: 'a' },
-                { type: 'admin', message: 'Hello! How can I assist you with your investment portfolio today?', time: '04:38 pm', avatar: 'A' }
-            ],
-            'john_doe': [
-                { type: 'user', message: 'I need help with my portfolio', time: '03:15 pm', avatar: 'J' },
-                { type: 'admin', message: 'I\'d be happy to help you with your portfolio. What specific questions do you have?', time: '03:16 pm', avatar: 'A' }
-            ],
-            'sarah_wilson': [
-                { type: 'user', message: 'What are the best investment options for beginners?', time: '02:45 pm', avatar: 'S' },
-                { type: 'user', message: 'I have about $5000 to start with', time: '02:46 pm', avatar: 'S' },
-                { type: 'user', message: 'Please advise', time: '02:47 pm', avatar: 'S' }
-            ],
-            'mike_chen': [
-                { type: 'user', message: 'My portfolio performance seems low this quarter', time: '01:30 pm', avatar: 'M' },
-                { type: 'admin', message: 'Let me review your portfolio and provide some insights.', time: '01:32 pm', avatar: 'A' }
-            ]
-        };
-        
-        const userNames = {
-            'asmodeus23': 'asmodeus23 Mehra',
-            'john_doe': 'John Doe',
-            'sarah_wilson': 'Sarah Wilson',
-            'mike_chen': 'Mike Chen'
-        };
-        
-        // Current active user
-        let currentUser = 'asmodeus23';
-        
-        // Load chat messages
-        function loadChat(userId) {
-            const chatMessages = document.getElementById('chatMessages');
-            const chatUserName = document.getElementById('chatUserName');
-            
-            chatUserName.textContent = userNames[userId];
-            chatMessages.innerHTML = '';
-            
-            const messages = chatData[userId] || [];
-            
-            messages.forEach(msg => {
-                const messageDiv = document.createElement('div');
-                
-                if (msg.type === 'user') {
-                    messageDiv.innerHTML = `
-                        <div class="flex items-start space-x-3">
-                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-white text-sm font-medium">${msg.avatar}</span>
-                            </div>
-                            <div class="flex-1">
-                                <div class="bg-gray-700 rounded-lg px-4 py-3 max-w-md">
-                                    <p class="text-white">${msg.message}</p>
-                                </div>
-                                <div class="message-time text-gray-400 mt-1">${msg.time}</div>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    messageDiv.innerHTML = `
-                        <div class="flex items-start space-x-3 justify-end">
-                            <div class="flex-1 flex justify-end">
-                                <div class="bg-teal-600 rounded-lg px-4 py-3 max-w-md">
-                                    <p class="text-white">${msg.message}</p>
-                                </div>
-                            </div>
-                            <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-white text-sm font-medium">${msg.avatar}</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-end">
-                            <div class="message-time text-gray-400 mt-1 mr-11">${msg.time}</div>
-                        </div>
-                    `;
-                }
-                
-                chatMessages.appendChild(messageDiv);
-            });
-            
-            // Scroll to bottom
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        // Handle user selection
-        document.querySelectorAll('.user-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // Remove active class from all users
-                document.querySelectorAll('.user-item').forEach(u => {
-                    u.classList.remove('bg-teal-600');
-                    u.classList.add('hover:bg-gray-700');
-                });
-                
-                // Add active class to selected user
-                this.classList.add('bg-teal-600');
-                this.classList.remove('hover:bg-gray-700');
-                
-                // Load chat
-                const userId = this.getAttribute('data-user');
-                currentUser = userId;
-                loadChat(userId);
-            });
-        });
-        
-        // Handle message sending
-        function sendMessage() {
-            const messageInput = document.getElementById('messageInput');
-            const message = messageInput.value.trim();
-            
-            if (message) {
-                // Add message to chat data
-                if (!chatData[currentUser]) {
-                    chatData[currentUser] = [];
-                }
-                
-                const now = new Date();
-                const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                
-                chatData[currentUser].push({
-                    type: 'admin',
-                    message: message,
-                    time: timeString,
-                    avatar: 'A'
-                });
-                
-                // Reload chat
-                loadChat(currentUser);
-                
-                // Clear input
-                messageInput.value = '';
-            }
-        }
-        
-        // Send button click
-        document.getElementById('sendButton').addEventListener('click', sendMessage);
-        
-        // Enter key press
-        document.getElementById('messageInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-        
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            const userItems = document.querySelectorAll('.user-item');
-            
-            userItems.forEach(item => {
-                const userName = item.querySelector('.font-medium').textContent.toLowerCase();
-                if (userName.includes(query)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-        
-        // Initialize
-        loadChat(currentUser);
-    </script>
-</body>
+  </body>
 </html>

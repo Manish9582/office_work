@@ -12,12 +12,81 @@
     <!-- end navbar -->
 
     <!-- start contents -->
-    <h1>Hellow im admin 
-      i am am your admin krish
-    </h1>
-    <!-- end contents -->
+    <div class="bg-gray-50 font-sans">
+      <!-- Header with gradient background -->
+      <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-indigo-800 text-white p-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
+        <div class="flex items-center gap-4">
+          <div class="flex-shrink-0 bg-white rounded shadow p-2">
+            <i class="fa-solid fa-chart-line text-indigo-700 text-2xl"></i>
+          </div>
+          <div>
+            <h1 class="text-3xl font-semibold">Market Linked Debentures</h1>
+            <p class="text-sm opacity-80 mt-1 max-w-md">Structured products with returns linked to market performance</p>
+          </div>
+        </div>
 
-    
+        <div class="ml-auto bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl px-6 py-3 min-w-[130px] text-right shadow-lg">
+          <p class="text-3xl font-semibold">65</p>
+          <p class="text-xs opacity-80 mt-0.5">Available MLDs</p>
+        </div>
+      </div>
+
+      <!-- Filter & Search Section -->
+      <div class="p-6">
+        <div class="bg-white shadow rounded-lg grid grid-cols-2 gap-10 items-center">
+          <div class="w-full p-6">
+            <div class="flex items-center gap-2.5 mb-4">
+              <i class="fa-solid fa-filter"></i>
+              <p class="font-bold">Filter by Category</p>
+            </div>
+            <div class="flex gap-6 flex-wrap">
+              {% for data in filler %}
+                <div class="flex gap-2.5 items-center bg-gray-100 py-3 px-4 rounded-3xl justify-center">
+                  <div>{{ data.icon|safe }}</div>
+                  <div class="font-medium">{{ data.title }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="w-full">
+            <div class="my-3 font-bold text-lg">Search MLDs</div>
+            <form method="GET" action="" class="flex items-center flex-1 max-w-md md:max-w-sm bg-gray-100 rounded-full px-4 py-2 shadow-inner">
+              <label for="q" class="sr-only">Search MLDs</label>
+              <i class="fa-solid fa-magnifying-glass text-gray-400 mr-3"></i>
+              <input type="search" id="q" name="q" value="" placeholder="Search by name, issuer, or ISIN..." class="py-2 flex-grow bg-transparent placeholder-gray-400 text-gray-800 focus:outline-none text-sm" />
+              <button type="submit" class="sr-only">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <div class="font-bold flex items-center text-3xl">
+          <i class="fa-solid fa-layer-group"></i>
+          <p>MLD Categories</p>
+        </div>
+        <div>
+          <p class="mt-2 text-gray-600 text-sm max-w-md">Explore different types of Market Linked Debentures based on underlying assets</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-3">
+        <div class="bg-gradient-to-r from-purple-700  to-pink-500">
+          <h2 class="font-semibold text-lg mb-1">Capital Protected MLDs</h2>
+          <p class="text-sm opacity-90 mb-4">Full capital protection with market upside</p>
+          <p class="text-sm font-semibold">
+            <span class="font-bold">Returns:</span> 0-15%
+          </p>
+          <p class="text-sm font-semibold">
+            <span class="font-bold">Risk:</span> Low-Medium
+          </p>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
     <!-- footer start -->
     <div>
       {% include 'components/footer.html' %}

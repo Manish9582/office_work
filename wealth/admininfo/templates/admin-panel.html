@@ -1,272 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wealth Order - Admin Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'wealth-gold': '#FFD700',
-                        'wealth-green': '#10B981',
-                        'wealth-blue': '#3B82F6',
-                        'wealth-dark-blue': '#1E40AF',
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .stat-icon {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-        }
-    </style>
-</head>
-<body class="bg-gray-50 min-h-screen">
-    <!-- Header -->
-    <header class="gradient-bg shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-4">
-                    <div class="w-10 h-10 bg-wealth-gold rounded-lg flex items-center justify-center shadow-lg">
-                        <i class="fas fa-coins text-wealth-dark-blue text-xl font-bold"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl font-bold text-white">Wealth Order</h1>
-                        <p class="text-blue-100 text-sm">Investment Management Portal</p>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="text-right">
-                        <p class="text-white font-medium">Admin</p>
-                        <p class="text-blue-100 text-sm">tarun.chadha@wealthorder.com</p>
-                    </div>
-                    <button class="bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg hover:bg-opacity-30 transition-colors flex items-center space-x-2">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+<div class="h-[100vh] w-full xl:grid grid-cols-12">
+  <div class="xl:col-start-1 xl:col-end-3 h-[100%] overflow-y-auto scrollbar-colored ss:hidden sm:hidden md:hidden lg:hidden xl:block" id="showNavbar">
+    <div>
+      {% include 'components/leftside.html' %}
+    </div>
+  </div>
+  <div class="xl:col-start-3 xl:col-end-13 h-[100%] overflow-y-scroll">
+    <!-- start navbar -->
+    <div class="w-full">
+      {% include 'components/navbar.html' %}
+    </div>
+    <!-- end navbar -->
 
-    <!-- Main Content -->
+    <!-- start contents -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <!-- Total Users -->
-            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm font-medium mb-1">Total Users</p>
-                        <p class="text-3xl font-bold text-gray-900">6</p>
-                        <p class="text-wealth-green text-sm font-medium flex items-center mt-2">
-                            <i class="fas fa-arrow-up mr-1"></i>
-                            +12% from last month
-                        </p>
-                    </div>
-                    <div class="stat-icon w-12 h-12 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-users text-white text-xl"></i>
-                    </div>
-                </div>
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Total Users -->
+        <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium mb-1">Total Users</p>
+              <p class="text-3xl font-bold text-gray-900">6</p>
+              <p class="text-wealth-green text-sm font-medium flex items-center mt-2">
+                <i class="fas fa-arrow-up mr-1"></i>
+                +12% from last month
+              </p>
             </div>
-
-            <!-- Pending Chats -->
-            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm font-medium mb-1">Pending Chats</p>
-                        <p class="text-3xl font-bold text-gray-900">1</p>
-                        <p class="text-yellow-600 text-sm font-medium flex items-center mt-2">
-                            <i class="fas fa-clock mr-1"></i>
-                            Needs attention
-                        </p>
-                    </div>
-                    <div class="w-12 h-12 bg-wealth-green rounded-lg flex items-center justify-center">
-                        <i class="fas fa-comments text-white text-xl"></i>
-                    </div>
-                </div>
+            <div class="stat-icon w-12 h-12 rounded-lg flex items-center justify-center">
+              <i class="fas fa-users text-white text-xl"></i>
             </div>
-
-            <!-- Total Products -->
-            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm font-medium mb-1">Total Products</p>
-                        <p class="text-3xl font-bold text-gray-900">15</p>
-                        <p class="text-wealth-blue text-sm font-medium flex items-center mt-2">
-                            <i class="fas fa-chart-line mr-1"></i>
-                            Active portfolios
-                        </p>
-                    </div>
-                    <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-chart-bar text-white text-xl"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Active Users -->
-            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm font-medium mb-1">Active Users</p>
-                        <p class="text-3xl font-bold text-gray-900">0</p>
-                        <p class="text-gray-500 text-sm font-medium flex items-center mt-2">
-                            <i class="fas fa-user-clock mr-1"></i>
-                            Currently online
-                        </p>
-                    </div>
-                    <div class="w-12 h-12 bg-wealth-blue rounded-lg flex items-center justify-center">
-                        <i class="fas fa-user-check text-white text-xl"></i>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
 
-        <!-- Quick Actions -->
-        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <i class="fas fa-bolt text-wealth-gold mr-2"></i>
-                Quick Actions
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                <!-- User Chat -->
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg card-hover cursor-pointer border border-purple-200">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-purple-500 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                            <i class="fas fa-comment-dots text-white text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-900 mb-1">User Chat</h3>
-                        <p class="text-gray-600 text-sm">Manage user conversations</p>
-                    </div>
-                </div>
-
-                <!-- Manage Users -->
-                <div class="bg-gradient-to-br from-wealth-blue/10 to-wealth-blue/20 p-4 rounded-lg card-hover cursor-pointer border border-wealth-blue/20">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-wealth-blue rounded-lg mx-auto mb-3 flex items-center justify-center">
-                            <i class="fas fa-users-cog text-white text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-900 mb-1">Manage Users</h3>
-                        <p class="text-gray-600 text-sm">View and manage user accounts</p>
-                    </div>
-                </div>
-
-                <!-- Product Management -->
-                <div class="bg-gradient-to-br from-wealth-green/10 to-wealth-green/20 p-4 rounded-lg card-hover cursor-pointer border border-wealth-green/20">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-wealth-green rounded-lg mx-auto mb-3 flex items-center justify-center">
-                            <i class="fas fa-box text-white text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-900 mb-1">Product Management</h3>
-                        <p class="text-gray-600 text-sm">Add, edit, delete investment products</p>
-                    </div>
-                </div>
-
-                <!-- User Management -->
-                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-lg card-hover cursor-pointer border border-indigo-200">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                            <i class="fas fa-user-shield text-white text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-900 mb-1">User Management</h3>
-                        <p class="text-gray-600 text-sm">Manage user accounts and permissions</p>
-                    </div>
-                </div>
-
-                <!-- Reports -->
-                <div class="bg-gradient-to-br from-wealth-gold/10 to-wealth-gold/20 p-4 rounded-lg card-hover cursor-pointer border border-wealth-gold/30">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-gradient-to-r from-wealth-gold to-yellow-500 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-900 mb-1">Reports</h3>
-                        <p class="text-gray-600 text-sm">View analytics and reports</p>
-                    </div>
-                </div>
+        <!-- Pending Chats -->
+        <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium mb-1">Pending Chats</p>
+              <p class="text-3xl font-bold text-gray-900">1</p>
+              <p class="text-yellow-600 text-sm font-medium flex items-center mt-2">
+                <i class="fas fa-clock mr-1"></i>
+                Needs attention
+              </p>
             </div>
+            <div class="w-12 h-12 bg-wealth-green rounded-lg flex items-center justify-center">
+              <i class="fas fa-comments text-white text-xl"></i>
+            </div>
+          </div>
         </div>
 
-        <!-- Recent Activity -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <i class="fas fa-clock text-wealth-blue mr-2"></i>
-                Recent Activity
-            </h2>
-            <div class="space-y-4">
-                <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div class="w-10 h-10 bg-wealth-green rounded-full flex items-center justify-center">
-                        <i class="fas fa-user-plus text-white"></i>
-                    </div>
-                    <div class="flex-1">
-                        <p class="font-medium text-gray-900">New user registered</p>
-                        <p class="text-gray-600 text-sm">John Doe joined the platform</p>
-                    </div>
-                    <span class="text-gray-500 text-sm">2 hours ago</span>
-                </div>
-                
-                <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div class="w-10 h-10 bg-wealth-blue rounded-full flex items-center justify-center">
-                        <i class="fas fa-chart-line text-white"></i>
-                    </div>
-                    <div class="flex-1">
-                        <p class="font-medium text-gray-900">New investment product added</p>
-                        <p class="text-gray-600 text-sm">Equity Growth Fund is now available</p>
-                    </div>
-                    <span class="text-gray-500 text-sm">1 day ago</span>
-                </div>
-                
-                <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div class="w-10 h-10 bg-wealth-gold rounded-full flex items-center justify-center">
-                        <i class="fas fa-coins text-white"></i>
-                    </div>
-                    <div class="flex-1">
-                        <p class="font-medium text-gray-900">Portfolio performance update</p>
-                        <p class="text-gray-600 text-sm">Monthly returns calculated for all portfolios</p>
-                    </div>
-                    <span class="text-gray-500 text-sm">2 days ago</span>
-                </div>
+        <!-- Total Products -->
+        <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium mb-1">Total Products</p>
+              <p class="text-3xl font-bold text-gray-900">15</p>
+              <p class="text-wealth-blue text-sm font-medium flex items-center mt-2">
+                <i class="fas fa-chart-line mr-1"></i>
+                Active portfolios
+              </p>
             </div>
+            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center">
+              <i class="fas fa-chart-bar text-white text-xl"></i>
+            </div>
+          </div>
         </div>
+
+        <!-- Active Users -->
+        <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium mb-1">Active Users</p>
+              <p class="text-3xl font-bold text-gray-900">0</p>
+              <p class="text-gray-500 text-sm font-medium flex items-center mt-2">
+                <i class="fas fa-user-clock mr-1"></i>
+                Currently online
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-wealth-blue rounded-lg flex items-center justify-center">
+              <i class="fas fa-user-check text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+          <i class="fas fa-bolt text-wealth-gold mr-2"></i>
+          Quick Actions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- User Chat -->
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg card-hover cursor-pointer border border-purple-200">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-purple-500 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                <i class="fas fa-comment-dots text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">User Chat</h3>
+              <p class="text-gray-600 text-sm">Manage user conversations</p>
+            </div>
+          </div>
+
+          <!-- Manage Users -->
+          <div class="bg-gradient-to-br from-wealth-blue/10 to-wealth-blue/20 p-4 rounded-lg card-hover cursor-pointer border border-wealth-blue/20">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-wealth-blue rounded-lg mx-auto mb-3 flex items-center justify-center">
+                <i class="fas fa-users-cog text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">Manage Users</h3>
+              <p class="text-gray-600 text-sm">View and manage user accounts</p>
+            </div>
+          </div>
+
+          <!-- Product Management -->
+          <div class="bg-gradient-to-br from-wealth-green/10 to-wealth-green/20 p-4 rounded-lg card-hover cursor-pointer border border-wealth-green/20">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-wealth-green rounded-lg mx-auto mb-3 flex items-center justify-center">
+                <i class="fas fa-box text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">Product Management</h3>
+              <p class="text-gray-600 text-sm">Add, edit, delete investment products</p>
+            </div>
+          </div>
+
+          <!-- User Management -->
+          <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-lg card-hover cursor-pointer border border-indigo-200">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-indigo-500 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                <i class="fas fa-user-shield text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">User Management</h3>
+              <p class="text-gray-600 text-sm">Manage user accounts and permissions</p>
+            </div>
+          </div>
+
+          <!-- Reports -->
+          <div class="bg-gradient-to-br from-wealth-gold/10 to-wealth-gold/20 p-4 rounded-lg card-hover cursor-pointer border border-wealth-gold/30">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-gradient-to-r from-wealth-gold to-yellow-500 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                <i class="fas fa-chart-line text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">Reports</h3>
+              <p class="text-gray-600 text-sm">View analytics and reports</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+          <i class="fas fa-clock text-wealth-blue mr-2"></i>
+          Recent Activity
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+            <div class="w-10 h-10 bg-wealth-green rounded-full flex items-center justify-center">
+              <i class="fas fa-user-plus text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="font-medium text-gray-900">New user registered</p>
+              <p class="text-gray-600 text-sm">John Doe joined the platform</p>
+            </div>
+            <span class="text-gray-500 text-sm">2 hours ago</span>
+          </div>
+
+          <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+            <div class="w-10 h-10 bg-wealth-blue rounded-full flex items-center justify-center">
+              <i class="fas fa-chart-line text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="font-medium text-gray-900">New investment product added</p>
+              <p class="text-gray-600 text-sm">Equity Growth Fund is now available</p>
+            </div>
+            <span class="text-gray-500 text-sm">1 day ago</span>
+          </div>
+
+          <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+            <div class="w-10 h-10 bg-wealth-gold rounded-full flex items-center justify-center">
+              <i class="fas fa-coins text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="font-medium text-gray-900">Portfolio performance update</p>
+              <p class="text-gray-600 text-sm">Monthly returns calculated for all portfolios</p>
+            </div>
+            <span class="text-gray-500 text-sm">2 days ago</span>
+          </div>
+        </div>
+      </div>
     </main>
+    <!-- end contents -->
 
-    <script>
-        // Add some interactive functionality
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('transform', 'scale-105');
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('transform', 'scale-105');
-            });
-        });
-
-        // Simulate real-time updates
-        function updateStats() {
-            const activeUsers = document.querySelector('.text-3xl:contains("0")');
-            if (activeUsers) {
-                const randomCount = Math.floor(Math.random() * 5);
-                // This would update in a real application
-            }
-        }
-
-        // Update stats every 30 seconds
-        setInterval(updateStats, 30000);
-    </script>
-</body>
-</html>
+    <!-- footer start -->
+    <div>
+      {% include 'components/footer.html' %}
+    </div>
+    <!-- footer end -->
+  </div>
+</div>

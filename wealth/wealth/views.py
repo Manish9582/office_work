@@ -29,9 +29,17 @@ def global_nav_context(request):
         {'name': 'Capital Gain', 'icon': '📊','function':'CapitalGainCalculator()'},
         {'name': 'Surrender Value', 'icon': '🛡️','function':'SurrenderValueCalculator()'},
     ]
+    filtermarket=[
+        {'icon': '<i class="fa-solid fa-table-cells-large"></i>', 'title': 'All MLDs'},
+        {'icon':'<i class="fa-solid fa-chart-line"></i>','title':'Equity Linked'},
+        {'icon':'<i class="fa-solid fa-coins"></i>','title':'Commodity'},
+        {'icon':'<i class="fa-solid fa-rupee-sign"></i>','title':'Currency'},
+        {'icon':'<i class="fa-solid fa-layer-group"></i>','title':'Hybrid'}
+    ]
     return {
         'nav_items': nav_items,
-        'calculators': calculators
+        'calculators': calculators,
+        'filler':filtermarket
     }
 
 
