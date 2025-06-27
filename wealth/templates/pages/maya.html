@@ -1,0 +1,64 @@
+<div class="h-[100vh] w-full xl:grid grid-cols-12">
+  <div class="xl:col-start-1 xl:col-end-3 h-[100%] overflow-y-auto scrollbar-colored ss:hidden sm:hidden md:hidden lg:hidden xl:block" id="showNavbar">
+    <div>
+      {% include 'components/leftside.html' %}
+    </div>
+  </div>
+  <div class="xl:col-start-3 xl:col-end-13 h-[100%] overflow-y-scroll">
+    <div class="w-full sticky top-0">
+      {% include 'components/navbar.html' %}
+    </div>
+
+    <div class="bg-gray-100 w-full px-8 py-8">
+      <div class="sm:flex mb-4 justify-between items-center">
+        <div>
+          <h1 class="bg-[linear-gradient(to_right,green,blue)] bg-clip-text text-transparent text-3xl font-bold">Maya AI - Your Investment Advisor</h1>
+          <p class="text-sm text-gray-600 mb-6">Get personalized investment advice and financial guidance</p>
+        </div>
+        <div class="text-center">
+          <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
+        </div>
+      </div>
+      <div class="bg-white rounded shadow-md">
+        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6 rounded-lg flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-16 h-16">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="AI Icon" class="w-[100%] h-[100%] object-cover bg-white p-2 rounded-full" />
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Hi! I'm Maya, your AI Financial Assistant</h2>
+            <p class="text-sm mt-2">I can chat about anything you're interested in, while also helping you make smart financial decisions. Feel free to ask me about any topic – from movies to technology, travel to cooking, or investment advice!</p>
+
+            <div class="mt-4 space-x-2 space-y-2">
+              <button class="bg-white text-purple-700 px-4 py-2 rounded-full shadow">How to start investing with ₹10,000?</button>
+              <button class="bg-white text-purple-700 px-4 py-2 rounded-full shadow">Best tax-saving investments</button>
+              <button class="bg-white text-purple-700 px-4 py-2 rounded-full shadow">What movies are trending?</button>
+              <button class="bg-white text-purple-700 px-4 py-2 rounded-full shadow">Latest tech gadgets</button>
+              <button class="bg-white text-purple-700 px-4 py-2 rounded-full shadow">How to create a diversified portfolio?</button>
+              <button class="bg-white text-purple-700 px-4 py-2 rounded-full shadow">Recommend good books</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- chatShow -->
+      <div class="w-full overflow-hidden mt-10 bg-white p-6 rounded-lg">
+        <div class="flex flex-col justify-between">
+          <div class="min-h-[60vh] overflow-hidden overflow-y-auto">
+
+          </div>
+          <div class="flex item items-center bg-gray-100 rounded-3xl px-4">
+            <input type="text" class="w-full py-4 px-2 text-[16px] outline-none" placeholder="Hey buddy ask question"/>
+            <i class="fa-solid fa-paper-plane text-2xl"></i>
+          </div>
+        </div>
+      </div>
+      <!-- chatShow end -->
+    </div>
+
+    <!-- footer start -->
+    <div>
+      {% include 'components/footer.html' %}
+    </div>
+    <!-- footer end -->
+  </div>
+</div>

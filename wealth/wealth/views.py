@@ -69,3 +69,9 @@ def bonds(request):
 
 def market(request):
     return render(request, "pages/market.html")
+
+def chatAi(request):
+    return render(request,"pages/maya.html")
+
+def chat(request):
+    return render(request,"pages/userChat.html")

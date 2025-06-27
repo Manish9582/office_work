@@ -32,6 +32,7 @@ urlpatterns = [
     path('stocks/',views.stocks),
     path('bonds/',views.bonds),
     path('market/',views.market),
-    path('user_page/',include('userinfo.urls')),
+    path('chat-with-maya/',views.chatAi),
+    path('chat/',views.chat),
     path('role-admin/',include('admininfo.urls')),
 ]

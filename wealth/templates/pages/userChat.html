@@ -1,0 +1,163 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wealth Order - Admin Chat Panel</title>
+    {% tailwind_css %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .message-time {
+        font-size: 11px;
+        opacity: 0.7;
+      }
+      .user-status-online {
+        background: #10b981;
+      }
+      .user-status-offline {
+        background: #6b7280;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
+        <!-- Header -->
+        <div class="p-4 border-b border-gray-700">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-lg">W</span>
+            </div>
+            <span class="text-xl font-semibold">Wealth Order</span>
+          </div>
+        </div>
+
+        <!-- User List Header -->
+        <div class="px-3 my-3">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="font-medium text-xl">Chats</span>
+          </div>
+          <div class="relative my-3 px-2.5 flex items-center border border-gray-500 justify-between rounded-md">
+            <!-- Visible input with proper focus handling -->
+            <input type="text" placeholder="Search users..." class="text-[18px] w-full border-none border-gray-300 rounded-lg p-2 outline-none" /> <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+        <!-- User List -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide" id="userList">
+          <!-- Active User -->
+          <div class="user-item bg-teal-600 p-4 cursor-pointer border-b border-gray-700" data-user="asmodeus23">
+            <div class="flex items-center space-x-3">
+              <div class="relative">
+                <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-medium">A</span>
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <span class="font-medium truncate">asmodeus23 Mehra</span>
+                  <span class="text-xs bg-teal-700 px-2 py-1 rounded-full">1</span>
+                </div>
+                <div class="text-sm text-teal-200 truncate">Processing...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Chat Area -->
+      <div class="flex-1 flex flex-col">
+        <!-- Chat Header -->
+        <div class="bg-gray-800 border-b border-gray-700 p-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="relative">
+                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-medium text-lg">A</span>
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-4 h-4 user-status-online rounded-full border-2 border-gray-800"></div>
+              </div>
+              <div>
+                <h2 class="text-xl font-semibold" id="chatUserName">asmodeus23 Mehra</h2>
+                <div class="flex items-center space-x-2 text-sm">
+                  <span class="text-green-400">● Online</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-phone text-white"></i>
+              </div>
+              <div class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-video text-white"></i>
+              </div>
+              <div class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center">
+                <p class="font-bold text-xl">M</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide p-4 space-y-4" id="chatMessages">
+          <!-- User Message -->
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-medium">a</span>
+            </div>
+            <div class="flex-1">
+              <div class="bg-gray-700 rounded-lg px-4 py-3 max-w-md">
+                <p class="text-white">hi sir</p>
+              </div>
+              <div class="message-time text-gray-400 mt-1">04:37 pm</div>
+            </div>
+          </div>
+
+          <!-- Admin Message -->
+          <div class="flex items-start space-x-3 justify-end">
+            <div class="flex-1 flex justify-end">
+              <div class="bg-teal-600 rounded-lg px-4 py-3 max-w-md">
+                <p class="text-white">Hello! How can I assist you with your investment portfolio today?</p>
+              </div>
+            </div>
+            <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-medium">A</span>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="message-time text-gray-400 mt-1 mr-11">04:38 pm</div>
+          </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="bg-gray-800 border-t border-gray-700 p-4">
+          <div class="flex items-center space-x-3">
+            <!-- Attachment Button -->
+            <button class="w-10 h-10 bg-teal-600 hover:bg-teal-700 rounded-lg flex items-center justify-center"><i class="fas fa-paperclip text-white"></i></button>
+
+            <!-- Message Input -->
+            <div class="flex-1 relative">
+              <input type="text" placeholder="Type your message..." class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-teal-500" id="messageInput" />
+              <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"><i class="fas fa-smile"></i></button>
+            </div>
+
+            <!-- Send Button -->
+            <button class="w-12 h-12 bg-teal-600 hover:bg-teal-700 rounded-lg flex items-center justify-center" id="sendButton"><i class="fas fa-paper-plane text-white"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
