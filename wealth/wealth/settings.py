@@ -85,10 +85,15 @@ WSGI_APPLICATION = 'wealth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'try',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1', 
+        'PORT': '3376',       
     }
 }
+
 
 
 # Password validation
@@ -125,7 +130,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+# settings.py
+
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]

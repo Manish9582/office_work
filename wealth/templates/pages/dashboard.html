@@ -1,11 +1,11 @@
 <div class="h-[100vh] w-full xl:grid grid-cols-12 relative">
-  <div class="xl:col-start-1 xl:col-end-3 hideSomthing hidden xl:block" id="showNavbarMobile">
+  <div class="xl:col-start-1 xl:col-end-3  hidden xl:block" id="showNavbarMobile">
     <div>
       {% include 'components/leftside.html' %}
     </div>
   </div>
   <div class="xl:col-start-3 xl:col-end-13 h-[100%] overflow-y-scroll">
-    <div class="w-full">
+    <div class="sticky top-0">
       {% include 'components/navbar.html' %}
     </div>
     <div class="bg-gray-100 p-3 h-auto w-full">

@@ -10,7 +10,7 @@
 .scrollbar-colored::-webkit-scrollbar-track {
   background: #f1f1f1;
   background: transparent;
-  background: linear-gradient(to bottom, green 20%, blue 50%, rgb(1, 17, 126) 30%);
+  background:linear-gradient(to bottom, green 20%, blue 50%, rgb(1, 17, 126) 30%);
 }
 
 /* Handle */
@@ -56,3 +56,4 @@
 .nothingScroll {
   overflow: hidden;
 }
+
