@@ -1,169 +1,212 @@
-<div class="h-[100vh] w-full xl:grid grid-cols-12">
-  <div class="xl:col-start-1 xl:col-end-3 h-[100%] overflow-y-auto scrollbar-colored ss:hidden sm:hidden md:hidden lg:hidden xl:block" id="showNavbar">
-    <div>
-      {% include 'components/leftside.html' %}
-    </div>
-  </div>
-  <div class="xl:col-start-3 xl:col-end-13 h-[100%] overflow-y-scroll">
-    <!-- start navbar -->
-    <div class="w-full sticky top-0">
-      {% include 'components/navbar.html' %}
-    </div>
-    <!-- end navbar -->
-
-    <!-- start contents -->
-    <div class="bg-gray-50 font-sans">
-      <!-- Header with gradient background -->
-      <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-indigo-800 text-white p-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
-        <div class="flex items-center gap-4">
-          <div class="flex-shrink-0 bg-white rounded shadow p-2">
-            <i class="fa-solid fa-chart-line text-indigo-700 text-2xl"></i>
-          </div>
-          <div>
-            <h1 class="text-3xl font-semibold">Market Linked Debentures</h1>
-            <p class="text-sm opacity-80 mt-1 max-w-md">Structured products with returns linked to market performance</p>
-          </div>
-        </div>
-
-        <div class="ml-auto bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl px-6 py-3 min-w-[130px] text-right shadow-lg">
-          <p class="text-3xl font-semibold">65</p>
-          <p class="text-xs opacity-80 mt-0.5">Available MLDs</p>
-        </div>
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="{% static 'css/hideScrollbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reponsive.css' %}" />
+    {% tailwind_css %}
+  </head>
+  <body>
+    <div class="h-[100vh] w-full grid grid-cols-12">
+      <div class="col-start-1 col-end-3 h-[100%]">
+        {% include 'components/leftside.html' %}
       </div>
-    </div>
+      <div class="col-start-3 col-end-13 h-[100%] overflow-y-scroll">
+        <div class="sticky top-0">
+          {% include 'components/navbar.html' %}
+        </div>
+        <!-- end navbar -->
 
-    <div class="px-6">
-      <!-- Filter & Search Section -->
-      <div class="py-6">
-        <div class="bg-white shadow rounded-lg grid grid-cols-2 gap-10 items-center">
-          <div class="w-full p-6">
-            <div class="flex items-center gap-2.5 mb-4">
-              <i class="fa-solid fa-filter"></i>
-              <p class="font-bold">Filter by Category</p>
+        <!-- start contents -->
+        <div class="bg-gray-50 font-sans">
+          <!-- Header with gradient background -->
+          <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-indigo-800 text-white p-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 bg-white rounded shadow p-2">
+                <i class="fa-solid fa-chart-line text-indigo-700 text-2xl"></i>
+              </div>
+              <div>
+                <h1 class="text-3xl font-semibold">Market Linked Debentures</h1>
+                <p class="text-sm opacity-80 mt-1 max-w-md">Structured products with returns linked to market performance</p>
+              </div>
             </div>
-            <div class="flex gap-6 flex-wrap">
-              {% for data in filler %}
-                <div class="flex gap-2.5 items-center bg-gray-100 py-3 px-4 rounded-3xl justify-center">
-                  <div>{{ data.icon|safe }}</div>
-                  <div class="font-medium">{{ data.title }}</div>
+
+            <div class="ml-auto bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl px-6 py-3 min-w-[130px] text-right shadow-lg">
+              <p class="text-3xl font-semibold">65</p>
+              <p class="text-xs opacity-80 mt-0.5">Available MLDs</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6">
+          <!-- Filter & Search Section -->
+          <div class="py-6">
+            <div class="bg-white shadow rounded-lg grid grid-cols-2 gap-10 items-center">
+              <div class="w-full p-6">
+                <div class="flex items-center gap-2.5 mb-4">
+                  <i class="fa-solid fa-filter"></i>
+                  <p class="font-bold">Filter by Category</p>
                 </div>
-              {% endfor %}
+                <div class="flex gap-6 flex-wrap">
+                  {% for data in filler %}
+                    <div class="flex gap-2.5 items-center bg-gray-100 py-3 px-4 rounded-3xl justify-center">
+                      <div>{{ data.icon|safe }}</div>
+                      <div class="font-medium">{{ data.title }}</div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="w-full">
+                <div class="my-3 font-bold text-lg">Search MLDs</div>
+                <form method="GET" action="" class="flex items-center flex-1 max-w-md md:max-w-sm bg-gray-100 rounded-full px-4 py-2 shadow-inner">
+                  <label for="q" class="sr-only">Search MLDs</label>
+                  <i class="fa-solid fa-magnifying-glass text-gray-400 mr-3"></i>
+                  <input type="search" id="q" name="q" value="" placeholder="Search by name, issuer, or ISIN..." class="py-2 flex-grow bg-transparent placeholder-gray-400 text-gray-800 focus:outline-none text-sm" />
+                  <button type="submit" class="sr-only">Search</button>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="w-full">
-            <div class="my-3 font-bold text-lg">Search MLDs</div>
-            <form method="GET" action="" class="flex items-center flex-1 max-w-md md:max-w-sm bg-gray-100 rounded-full px-4 py-2 shadow-inner">
-              <label for="q" class="sr-only">Search MLDs</label>
-              <i class="fa-solid fa-magnifying-glass text-gray-400 mr-3"></i>
-              <input type="search" id="q" name="q" value="" placeholder="Search by name, issuer, or ISIN..." class="py-2 flex-grow bg-transparent placeholder-gray-400 text-gray-800 focus:outline-none text-sm" />
-              <button type="submit" class="sr-only">Search</button>
-            </form>
+          <div class="pb-12">
+            <div class="my-6">
+              <div class="font-bold flex items-center text-3xl gap-1">
+                <i class="fa-solid fa-layer-group"></i>
+                <p>MLD Categories</p>
+              </div>
+              <div>
+                <p class="mt-2 text-gray-600 text-sm max-w-md">Explore different types of Market Linked Debentures based on underlying assets</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-8 text-white">
+              <div class="w-fit bg-gradient-to-r from-pink-500 to-purple-500 p-5 rounded-xl">
+                <h2 class="font-semibold text-lg mb-1">Capital Protected MLDs</h2>
+                <p class="text-sm opacity-90 mb-4">Full capital protection with market upside</p>
+                <p class="text-sm font-semibold">
+                  <span class="font-bold">Returns:</span> 0-15%
+                </p>
+                <p class="text-sm font-semibold">
+                  <span class="font-bold">Risk:</span> Low-Medium
+                </p>
+              </div>
+              <div class="w-fit bg-gradient-to-r from-pink-500 to-purple-500 p-5 rounded-xl">
+                <h2 class="font-semibold text-lg mb-1">Partial Protection MLDs</h2>
+                <p class="text-sm opacity-90 mb-4">Partial capital protection with higher upside</p>
+                <p class="text-sm font-semibold">
+                  <span class="font-bold">Returns:</span> 0-20%
+                </p>
+                <p class="text-sm font-semibold">
+                  <span class="font-bold">Risk:</span> Medium
+                </p>
+              </div>
+              <div class="w-fit bg-gradient-to-r from-pink-500 to-purple-500 p-5 rounded-xl">
+                <h2 class="font-semibold text-lg mb-1">Leveraged MLDs</h2>
+                <p class="text-sm opacity-90 mb-4">Higher participation in market gains</p>
+                <p class="text-sm font-semibold">
+                  <span class="font-bold">Returns:</span> 0-25%
+                </p>
+                <p class="text-sm font-semibold">
+                  <span class="font-bold">Risk:</span> Medium-High
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="pb-12">
-        <div class="my-6">
-          <div class="font-bold flex items-center text-3xl gap-1">
-            <i class="fa-solid fa-layer-group"></i>
-            <p>MLD Categories</p>
-          </div>
-          <div>
-            <p class="mt-2 text-gray-600 text-sm max-w-md">Explore different types of Market Linked Debentures based on underlying assets</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-8 text-white">
-          <div class="w-fit bg-gradient-to-r from-pink-500 to-purple-500 p-5 rounded-xl">
-            <h2 class="font-semibold text-lg mb-1">Capital Protected MLDs</h2>
-            <p class="text-sm opacity-90 mb-4">Full capital protection with market upside</p>
-            <p class="text-sm font-semibold">
-              <span class="font-bold">Returns:</span> 0-15%
-            </p>
-            <p class="text-sm font-semibold">
-              <span class="font-bold">Risk:</span> Low-Medium
-            </p>
-          </div>
-          <div class="w-fit bg-gradient-to-r from-pink-500 to-purple-500 p-5 rounded-xl">
-            <h2 class="font-semibold text-lg mb-1">Partial Protection MLDs</h2>
-            <p class="text-sm opacity-90 mb-4">Partial capital protection with higher upside</p>
-            <p class="text-sm font-semibold">
-              <span class="font-bold">Returns:</span> 0-20%
-            </p>
-            <p class="text-sm font-semibold">
-              <span class="font-bold">Risk:</span> Medium
-            </p>
-          </div>
-          <div class="w-fit bg-gradient-to-r from-pink-500 to-purple-500 p-5 rounded-xl">
-            <h2 class="font-semibold text-lg mb-1">Leveraged MLDs</h2>
-            <p class="text-sm opacity-90 mb-4">Higher participation in market gains</p>
-            <p class="text-sm font-semibold">
-              <span class="font-bold">Returns:</span> 0-25%
-            </p>
-            <p class="text-sm font-semibold">
-              <span class="font-bold">Risk:</span> Medium-High
-            </p>
-          </div>
-        </div>
-      </div>
 
-      <div>
+          <div>
+            <div>
+              <h1 class="text-3xl font-bold">📉 Available Market Linked Debentures</h1>
+              <p class="text-gray-600 font-bold ml-2 mt-2.5">Browse through our collection of 65 Market Linked Debentures</p>
+            </div>
+            <div class="grid grid-cols-3 gap-6 my-10">
+              <div class="hover:shadow-xl transition-all duration-300 hover:scale-105 shadow rounded-b-2xl">
+                <div class="bg-linear-to-b text-white from-violet-500 to-fuchsia-500 p-6 rounded-t-2xl">
+                  <div class="font-black text-xl">ADITYA BIRLA FINANCE LIMITED</div>
+                  <div class="my-4 flex justify-between items-center">
+                    <div>
+                      <div class="bg-[rgba(0,0,0,0.5)] text-white py-2 px-3 rounded-3xl w-fit font-semibold">N/A Yieild</div>
+                      <div class="text-white text-sm my-1">ISIN :INE860H07HY6</div>
+                    </div>
+                    <div class="font-semibold text-sm">ADANI ENTERPRISES</div>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="flex justify-between bg-gray-200 p-4 rounded-lg">
+                    <div>
+                      <p class="text-gray-500 text-sm font-medium">FACE VALUE</p>
+                      <P class="font-bold">₹1,000,000</P>
+                    </div>
+                    <div>
+                      <p class="text-gray-500 text-sm font-medium">COUPON RATE</p>
+                      <P class="font-bold">9.00%</P>
+                    </div>
+                  </div>
+                  <div class="flex justify-between bg-gray-200 p-4 mt-2.5 rounded-lg">
+                    <div>
+                      <p class="text-gray-500 text-sm font-medium">CREDIT RATING</p>
+                      <p>CRISIL A+</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-500 text-sm font-medium">PAYMENT FREQ</p>
+                      <p class="font-bold">On Maturity</p>
+                    </div>
+                  </div>
+                  <div class="w-fit m-auto my-2">
+                    <p class="text-gray-500 text-sm font-medium">MUTURITY DATE</p>
+                    <P class="font-bold">
+                      <i class="fa-solid fa-calendar-days"></i> 19 jun 2024
+                    </P>
+                  </div>
+                  <div class="flex justify-between">
+                    <div class="bg-gradient-to-r from-pink-500 to-pink-700 px-4 py-2 rounded-3xl">HIGHT RISK</div>
+                    <div class="px-4 py-2 rounded-3xl bg-gradient-to-r from-violet-500 to-blue-600">View Details</div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-purple-500 rounded-2xl"></div>
+              <div class="bg-rose-800 rounded-2xl"></div>
+            </div>
+          </div>
+        </div>
+        <!-- footer start -->
         <div>
-          <h1 class="text-3xl font-bold">📉 Available Market Linked Debentures</h1>
-          <p class="text-gray-600 font-bold ml-2 mt-2.5">Browse through our collection of 65 Market Linked Debentures</p>
+          {% include 'components/footer.html' %}
         </div>
-        <div class="grid grid-cols-3 gap-6 my-10">
-          <div class="hover:shadow-xl transition-all duration-300 hover:scale-105 shadow rounded-b-2xl">
-            <div class="bg-linear-to-b text-white from-violet-500 to-fuchsia-500 p-6 rounded-t-2xl">
-              <div class="font-black text-xl">ADITYA BIRLA FINANCE LIMITED</div>
-              <div class="my-4 flex justify-between items-center">
-                <div>
-                  <div class="bg-[rgba(0,0,0,0.5)] text-white py-2 px-3 rounded-3xl w-fit font-semibold">N/A Yieild</div>
-                  <div class="text-white text-sm my-1">ISIN :INE860H07HY6</div>
-                </div>
-                <div class="font-semibold text-sm">ADANI ENTERPRISES</div>
-              </div>
-            </div>
-            <div class="p-4">
-              <div class="flex justify-between bg-gray-200 p-4 rounded-lg">
-                <div>
-                  <p class="text-gray-500 text-sm font-medium">FACE VALUE</p>
-                  <P class="font-bold">₹1,000,000</P>
-                </div>
-                <div>
-                  <p class="text-gray-500 text-sm font-medium">COUPON RATE</p>
-                  <P class="font-bold">9.00%</P>
-                </div>
-              </div>
-              <div class="flex justify-between bg-gray-200 p-4 mt-2.5 rounded-lg">
-                <div>
-                  <p class="text-gray-500 text-sm font-medium">CREDIT RATING</p>
-                  <p>CRISIL A+</p>
-                </div>
-                <div>
-                  <p class="text-gray-500 text-sm font-medium">PAYMENT FREQ</p>
-                  <p class="font-bold">On Maturity</p>
-                </div>
-              </div>
-              <div class="w-fit m-auto my-2">
-                <p class="text-gray-500 text-sm font-medium">MUTURITY DATE</p>
-                <P class="font-bold">
-                  <i class="fa-solid fa-calendar-days"></i> 19 jun 2024
-                </P>
-              </div>
-              <div class="flex justify-between">
-                <div class="bg-gradient-to-r from-pink-500 to-pink-700 px-4 py-2 rounded-3xl">HIGHT RISK</div>
-                <div class="px-4 py-2 rounded-3xl bg-gradient-to-r from-violet-500 to-blue-600">View Details</div>
-              </div>
-            </div>
-          </div>
-          <div class="bg-purple-500 rounded-2xl"></div>
-          <div class="bg-rose-800 rounded-2xl"></div>
-        </div>
+        <!-- footer end -->
       </div>
     </div>
-    <!-- footer start -->
+
     <div>
-      {% include 'components/footer.html' %}
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="Retirement">
+        {% include 'components/calculators/retirementplan.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+        {% include 'components/calculators/goal.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+        {% include 'components/calculators/loan.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/rdcal.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/futrecal.html' %}
+      </div>
+
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/salary.html' %}
+      </div>
+
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/capital.html' %}
+      </div>
+
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/surrender.html' %}
+      </div>
     </div>
-    <!-- footer end -->
-  </div>
-</div>
+  </body>
+</html>

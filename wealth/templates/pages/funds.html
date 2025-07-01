@@ -1,155 +1,197 @@
-<div class="h-[100vh] w-full xl:grid grid-cols-12">
-  <div class="xl:col-start-1 xl:col-end-3 h-[100%] overflow-y-auto scrollbar-colored ss:hidden sm:hidden md:hidden lg:hidden xl:block" id="showNavbar">
-    <div>
-      {% include 'components/leftside.html' %}
-    </div>
-  </div>
-  <div class="xl:col-start-3 xl:col-end-13 h-[100%] overflow-y-scroll">
-    <!-- start navbar -->
-    <div class="w-full sticky top-0">
-      {% include 'components/navbar.html' %}
-    </div>
-    <!-- end navbar -->
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="{% static 'css/hideScrollbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reponsive.css' %}" />
+    {% tailwind_css %}
+  </head>
+  <body>
+    <div class="h-[100vh] w-full grid grid-cols-12">
+      <div class="col-start-1 col-end-3 h-[100%]">
+        {% include 'components/leftside.html' %}
+      </div>
+      <div class="col-start-3 col-end-13 h-[100%] overflow-y-scroll">
+        <div class="sticky top-0">
+          {% include 'components/navbar.html' %}
+        </div>
+        <!-- end navbar -->
 
-    <!-- start section contents -->
-    <div class="px-12 w-full bg-gray-50">
-      <div class="flex items-center justify-between py-6">
+        <!-- start section contents -->
+        <div class="px-12 w-full bg-gray-50">
+          <div class="flex items-center justify-between py-6">
+            <div>
+              <p class="bg-[linear-gradient(to_right,green,blue)] bg-clip-text text-transparent text-3xl font-bold">Popular Mutual Funds</p>
+              <p class="text-xl font-medium text-gray-700">Real-time mutual fund data</p>
+            </div>
+            <div class="text-center">
+              <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-[-15px_14px_23px_-4px_rgba(0,_0,_0,_0.1)] w-full py-7 px-8 bg-white">
+            <p class="text-2xl font-bold">Search Mutual funds</p>
+            <form action="" class="mt-1.5">
+              <div class="grid grid-cols-3 gap-10">
+                <div>
+                  <label for="" class="font-semibold text-lg">Fund Name:</label>
+                  <div class="mt-1.5">
+                    <input type="text" class="border-0 border-gray-500 rounded-md w-[100%] outline p-2" />
+                  </div>
+                </div>
+                <div>
+                  <label for="" class="font-semibold text-lg">Category:</label>
+                  <div class="mt-1.5">
+                    <input type="text" class="border-0 border-gray-500 rounded-md w-[100%] outline p-2" />
+                  </div>
+                </div>
+                <div>
+                  <label for="" class="font-semibold text-lg">Sort By:</label>
+                  <div class="mt-1.5">
+                    <input type="text" class="border-0 border-gray-500 rounded-md w-[100%] outline p-2" />
+                  </div>
+                </div>
+              </div>
+              <div class="bg-blue-900 w-fit text-lg text-white px-5 py-2 rounded-md mt-4">
+                <input type="submit" value="Search Funds" />
+              </div>
+            </form>
+          </div>
+          <div class="my-7 bg-white">
+            <div class="rounded-lg shadow-[-15px_14px_23px_-4px_rgba(0,_0,_0,_0.1)] w-full py-7 px-8 flex gap-10">
+              <a href="" class="border-b-2 border-green-600">All</a>
+              <a href="">Equity</a>
+              <a href="">Debt</a>
+              <a href="">Hybrid</a>
+              <a href="">Housing</a>
+              <a href="">ELSS</a>
+            </div>
+          </div>
+
+          <!-- end section card -->
+          <div class="py-4">
+            <div class="flex justify-between">
+              <div class="font-bold text-3xl">Popular Mutual Funds</div>
+              <div class="text-blue-700 font-bold text-xl">View All Funds</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+              <!-- Card 1 -->
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:scale-3d">
+                <div class="p-6 bg-gray-100">
+                  <p class="mb-4 text-[25px] font-bold h-[40px] text-nowrap text-ellipsis overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nihil quis reiciendis nostrum non, fugiat sed voluptatem reprehenderit alias. Sapiente.</p>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">Mutual Fund</span>
+                </div>
+                <div class="border-t border-gray-200 p-6">
+                  <div class="mb-4">
+                    <p class="font-medium text-gray-500 text-[18px]">Lorem ipsum dolor sit amet.</p>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                      <div class="bg-gray-100 p-4 rounded-2xl">
+                        <p class="text-sm text-gray-500 w-full">Fund House</p>
+                        <p class="font-medium text-green-700 w-full">Axios Mutual Fund</p>
+                      </div>
+                      <div class="bg-gray-100 p-4 rounded-2xl">
+                        <p class="text-sm text-gray-500">Latest NAV</p>
+                        <p class="font-medium text-green-700">₹ 0.0</p>
+                      </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-2xl">
+                      <p class="text-sm text-gray-500">1Y Returns</p>
+                      <p class="font-medium text-green-700">N/A</p>
+                    </div>
+                    <div class="text-center bg-blue-900 py-2 rounded-[7px]">
+                      <a href="" class="text-white font-semibold">View Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end section card -->
+          <div class="pb-10">
+            <div class="w-full mx-auto bg-white rounded-lg shadow p-6">
+              <section class="mb-6">
+                <h2 class="font-semibold text-lg text-gray-900 mb-2">About this data</h2>
+                <p>This data is fetched from a third-party mutual funds API. The information is updated regularly to provide you with the latest mutual fund details.</p>
+              </section>
+
+              <hr class="my-6" />
+
+              <section>
+                <h3 class="font-semibold mb-4 text-gray-900">Understanding Fund Categories</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                  <div class="bg-gray-50 p-4 rounded shadow-sm">
+                    <h4 class="font-semibold text-blue-700 mb-1">Equity Funds</h4>
+                    <p>Invest primarily in stocks. Higher risk, potentially higher returns over long term.</p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded shadow-sm">
+                    <h4 class="font-semibold text-blue-700 mb-1">Debt Funds</h4>
+                    <p>Invest in fixed income securities. Lower risk, stable returns.</p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded shadow-sm">
+                    <h4 class="font-semibold text-blue-700 mb-1">Hybrid Funds</h4>
+                    <p>Invest in both equity and debt. Balanced risk and return profile.</p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded shadow-sm">
+                    <h4 class="font-semibold text-blue-700 mb-1">Housing Funds</h4>
+                    <p>Invest in real estate and housing sector companies. Benefit from property market growth.</p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded shadow-sm">
+                    <h4 class="font-semibold text-blue-700 mb-1">ELSS Funds</h4>
+                    <p>Equity-linked savings schemes with tax benefits under Section 80C.</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <!-- end section contents -->
+        <!-- footer start -->
         <div>
-          <p class="bg-[linear-gradient(to_right,green,blue)] bg-clip-text text-transparent text-3xl font-bold">Popular Mutual Funds</p>
-          <p class="text-xl font-medium text-gray-700">Real-time mutual fund data</p>
+          {% include 'components/footer.html' %}
         </div>
-        <div class="text-center">
-          <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
-        </div>
-      </div>
-
-      <div class="rounded-lg shadow-[-15px_14px_23px_-4px_rgba(0,_0,_0,_0.1)] w-full py-7 px-8 bg-white">
-        <p class="text-2xl font-bold">Search Mutual funds</p>
-        <form action="" class="mt-1.5">
-          <div class="grid grid-cols-3 gap-10">
-            <div>
-              <label for="" class="font-semibold text-lg">Fund Name:</label>
-              <div class="mt-1.5">
-                <input type="text" class="border-0 border-gray-500 rounded-md w-[100%] outline p-2" />
-              </div>
-            </div>
-            <div>
-              <label for="" class="font-semibold text-lg">Category:</label>
-              <div class="mt-1.5">
-                <input type="text" class="border-0 border-gray-500 rounded-md w-[100%] outline p-2" />
-              </div>
-            </div>
-            <div>
-              <label for="" class="font-semibold text-lg">Sort By:</label>
-              <div class="mt-1.5">
-                <input type="text" class="border-0 border-gray-500 rounded-md w-[100%] outline p-2" />
-              </div>
-            </div>
-          </div>
-          <div class="bg-blue-900 w-fit text-lg text-white px-5 py-2 rounded-md mt-4">
-            <input type="submit" value="Search Funds" />
-          </div>
-        </form>
-      </div>
-      <div class="my-7 bg-white">
-        <div class="rounded-lg shadow-[-15px_14px_23px_-4px_rgba(0,_0,_0,_0.1)] w-full py-7 px-8 flex gap-10">
-          <a href="" class="border-b-2 border-green-600">All</a>
-          <a href="">Equity</a>
-          <a href="">Debt</a>
-          <a href="">Hybrid</a>
-          <a href="">Housing</a>
-          <a href="">ELSS</a>
-        </div>
-      </div>
-
-      <!-- end section card -->
-      <div class="py-4">
-        <div class="flex justify-between">
-          <div class="font-bold text-3xl">Popular Mutual Funds</div>
-          <div class="text-blue-700 font-bold text-xl">View All Funds</div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
-          <!-- Card 1 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:scale-3d">
-            <div class="p-6 bg-gray-100">
-              <p class="mb-4 text-[25px] font-bold h-[40px] text-nowrap text-ellipsis overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nihil quis reiciendis nostrum non, fugiat sed voluptatem reprehenderit alias. Sapiente.</p>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">Mutual Fund</span>
-            </div>
-            <div class="border-t border-gray-200 p-6">
-              <div class="mb-4">
-                <p class="font-medium text-gray-500 text-[18px]">Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="space-y-4">
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="bg-gray-100 p-4 rounded-2xl">
-                    <p class="text-sm text-gray-500 w-full">Fund House</p>
-                    <p class="font-medium text-green-700 w-full">Axios Mutual Fund</p>
-                  </div>
-                  <div class="bg-gray-100 p-4 rounded-2xl">
-                    <p class="text-sm text-gray-500">Latest NAV</p>
-                    <p class="font-medium text-green-700">₹ 0.0</p>
-                  </div>
-                </div>
-                <div class="bg-gray-100 p-4 rounded-2xl">
-                  <p class="text-sm text-gray-500">1Y Returns</p>
-                  <p class="font-medium text-green-700">N/A</p>
-                </div>
-                <div class="text-center bg-blue-900 py-2 rounded-[7px]">
-                  <a href="" class="text-white font-semibold">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end section card -->
-      <div class="pb-10">
-        <div class="w-full mx-auto bg-white rounded-lg shadow p-6">
-          <section class="mb-6">
-            <h2 class="font-semibold text-lg text-gray-900 mb-2">About this data</h2>
-            <p>This data is fetched from a third-party mutual funds API. The information is updated regularly to provide you with the latest mutual fund details.</p>
-          </section>
-
-          <hr class="my-6" />
-
-          <section>
-            <h3 class="font-semibold mb-4 text-gray-900">Understanding Fund Categories</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              <div class="bg-gray-50 p-4 rounded shadow-sm">
-                <h4 class="font-semibold text-blue-700 mb-1">Equity Funds</h4>
-                <p>Invest primarily in stocks. Higher risk, potentially higher returns over long term.</p>
-              </div>
-
-              <div class="bg-gray-50 p-4 rounded shadow-sm">
-                <h4 class="font-semibold text-blue-700 mb-1">Debt Funds</h4>
-                <p>Invest in fixed income securities. Lower risk, stable returns.</p>
-              </div>
-
-              <div class="bg-gray-50 p-4 rounded shadow-sm">
-                <h4 class="font-semibold text-blue-700 mb-1">Hybrid Funds</h4>
-                <p>Invest in both equity and debt. Balanced risk and return profile.</p>
-              </div>
-
-              <div class="bg-gray-50 p-4 rounded shadow-sm">
-                <h4 class="font-semibold text-blue-700 mb-1">Housing Funds</h4>
-                <p>Invest in real estate and housing sector companies. Benefit from property market growth.</p>
-              </div>
-
-              <div class="bg-gray-50 p-4 rounded shadow-sm">
-                <h4 class="font-semibold text-blue-700 mb-1">ELSS Funds</h4>
-                <p>Equity-linked savings schemes with tax benefits under Section 80C.</p>
-              </div>
-            </div>
-          </section>
-        </div>
+        <!-- footer end -->
       </div>
     </div>
-    <!-- end section contents -->
-    <!-- footer start -->
     <div>
-      {% include 'components/footer.html' %}
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="Retirement">
+        {% include 'components/calculators/retirementplan.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+        {% include 'components/calculators/goal.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+        {% include 'components/calculators/loan.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/rdcal.html' %}
+      </div>
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/futrecal.html' %}
+      </div>
+
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/salary.html' %}
+      </div>
+
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/capital.html' %}
+      </div>
+
+      <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+        {% include 'components/calculators/surrender.html' %}
+      </div>
     </div>
-    <!-- footer end -->
-  </div>
-</div>
+  </body>
+</html>

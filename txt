@@ -1,0 +1,28 @@
+
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="Retirement">
+    {% include 'components/calculators/retirementplan.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+    {% include 'components/calculators/goal.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+    {% include 'components/calculators/loan.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+    {% include 'components/calculators/rdcal.html' %}
+  </div>
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+    {% include 'components/calculators/futrecal.html' %}
+  </div>
+
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id="">
+    {% include 'components/calculators/salary.html' %}
+  </div>
+
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden" id>
+    {% include 'components/calculators/capital.html' %}
+  </div>
+
+  <div class="absolute top-0 right-0 z-50 w-full h-full hidden">
+    {% include 'components/calculators/surrender.html' %}
+  </div>

@@ -20,14 +20,14 @@ def global_nav_context(request):
         {'url': '/aifs', 'icon': '📊', 'label': 'AIFs'}
     ]
     calculators = [
-        {'name': 'Retirement Planning', 'icon': '🏠','function':'RetirementPlan()'},
-        {'name': 'Loan Calculator', 'icon': '🏡' ,'function':'LoanCalculator()'},
-        {'name': 'Goal Planning', 'icon': '🎯' ,'function':'GoalPlanning()'},
-        {'name': 'RD Calculator', 'icon': '💰','function':'RDCalculator()'},
-        {'name': 'Future Money', 'icon': '📈','function':'FutureMoneyCalculator()'},
-        {'name': 'Salary Calculator', 'icon': '💼','function':'SalaryCalculator()'},
-        {'name': 'Capital Gain', 'icon': '📊','function':'CapitalGainCalculator()'},
-        {'name': 'Surrender Value', 'icon': '🛡️','function':'SurrenderValueCalculator()'},
+        {'name': 'Retirement Planning', 'icon': '🏠','function':'toggleCalculator(Retirement)'},
+        {'name': 'Loan Calculator', 'icon': '🏡' ,'function':'toggleCalculator(Loan)'},
+        {'name': 'Goal Planning', 'icon': '🎯' ,'function':'toggleCalculator(Goal)'},
+        {'name': 'RD Calculator', 'icon': '💰','function':'toggleCalculator(RD)'},
+        {'name': 'Future Money', 'icon': '📈','function':'toggleCalculator(Future)'},
+        {'name': 'Salary Calculator', 'icon': '💼','function':'toggleCalculator(Salary)'},
+        {'name': 'Capital Gain', 'icon': '📊','function':'toggleCalculator(Capital)'},
+        {'name': 'Surrender Value', 'icon': '🛡️','function':'toggleCalculator(Surrender)'},
     ]
     filtermarket=[
         {'icon': '<i class="fa-solid fa-table-cells-large"></i>', 'title': 'All MLDs'},
