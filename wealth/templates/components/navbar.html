@@ -3,67 +3,52 @@
   <!-- Navigation Bar -->
   <nav class="bg-white shadow-lg py-4 px-6 flex justify-between items-center">
     <!-- Left Section -->
-    <div class="w-full flex justify-between items-center lg:hidden">
-      <span class="font-bold text-lg text-gray-800">Wealth order</span>
-      <div class="w-[70px] h-[80px] hidden">
-        <a href="/"
-          ><img
-            src="{% static 'images/wealth.png' %}"
-            class="w-full h-full object-contain rounded-full"
-            alt="Logo"
-        /></a>
+    <div class="w-full">
+      <span class="font-bold text-lg text-gray-800 hidden lg:block">Wealth order</span>
+      <div class="w-full flex justify-between items-center">
+        <div class="w-[80px] h-[70px] lg:hidden">
+          <a href="/"><img src="{% static 'images/wealth.png' %}" class="w-full h-full object-contain rounded-full" alt="Logo" /></a>
+        </div>
+        <div class="lg:hidden text-2xl font-extrabold">
+          <i class="fa-solid fa-bars-staggered" id="showNavList"></i>
+        </div>
       </div>
-      <i class="fa-solid fa-bars text-2xl" id="bars"></i>
     </div>
 
-
     <!-- Center Search -->
-    <div class="flex-1 max-w-xl hidden lg:block">
-      <div
-        class="border border-gray-300 flex items-center gap-3 bg-gray-50 px-3 py-2 rounded-2xl"
-      >
-        <i class="fa-solid fa-magnifying-glass text-lg"></i>
-        <input
-          type="text"
-          placeholder="Search investments, funds, bond"
-          class="w-full rounded-lg outline-none md:shrink-0"
-        />
+    <div class="hidden xl:block lg:block">
+      <div class="w-2xl">
+        <div class="border border-gray-300 flex items-center gap-3 bg-gray-50 px-3 py-2 rounded-2xl">
+          <i class="fa-solid fa-magnifying-glass text-lg"></i>
+          <input type="text" placeholder="Search investments, funds, bond" class="w-full rounded-lg outline-none" />
+        </div>
       </div>
     </div>
 
     <!-- Right Section -->
+    <div class="hidden lg:block">
+      <div class="w-[160px] flex items-center justify-between">
+        <div class="relative inline-block">
+          <div class="text-2xl p-1">🔔</div>
+          <div class="absolute top-0 right-0 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs transform -translate-y-1/4 translate-x-1/4 ring-2 ring-white">3</div>
+        </div>
 
-    <div class="w-[160px] lg:flex hidden items-center justify-between">
-      <div class="relative inline-block">
-        <div class="text-2xl p-1">🔔</div>
-        <div
-          class="absolute top-0 right-0 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs transform -translate-y-1/4 translate-x-1/4 ring-2 ring-white"
-        >
-          3
+        <div>
+          {% if 20 == 10 %}
+            <div class="font-medium py-1 px-3 rounded-full text-sm flex items-center gap-1">
+              <div class="w-[35px] h-[35px] border-2 rounded-full"></div>
+              <div>
+                <p>Krish mehra</p>
+                <p>active investor</p>
+              </div>
+              <div>
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
+            </div>
+          {% else %}
+            <a href="/user/login" class="font-bold text-md bg-green-700 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition duration-300 ease-in-out scale-250">Login</a>
+          {% endif %}
         </div>
-      </div>
-      <button class=""></button>
-      <div>
-        {% if 20 == 10 %}
-        <div
-          class="font-medium py-1 px-3 rounded-full text-sm flex items-center gap-1"
-        >
-          <div class="w-[35px] h-[35px] border-2 rounded-full"></div>
-          <div>
-            <p>Krish mehra</p>
-            <p>active investor</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-caret-down"></i>
-          </div>
-        </div>
-        {% else %}
-        <a
-          href="/user/login"
-          class="font-bold text-md bg-green-700 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition duration-300 ease-in-out scale-250"
-          >Login</a
-        >
-        {% endif %}
       </div>
     </div>
   </nav>
