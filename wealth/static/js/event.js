@@ -1,15 +1,10 @@
-let leftside = document.getElementById('leftside')
-let bars = document.getElementById('bars')
-bars.addEventListener('click',()=>{
-  leftside.style.display = "block"
-})  
-
-
-
-
-
-
-
-
-
+let leftNavbar = document.querySelector('#leftNavbar');
+let showNavList = document.querySelector('#showNavList');
+showNavList.addEventListener('click', () => {
+    leftNavbar.style.display = 'block';
+})
+let hideNavbar = document.querySelector('#hideNavbar');
+hideNavbar.addEventListener('click', () => {
+    leftNavbar.style.display = 'none';
+})
 
