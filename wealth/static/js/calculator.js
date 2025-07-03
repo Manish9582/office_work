@@ -1,11 +1,12 @@
 const calculatorsDatas = document.querySelector('#calculatorsDatas');
+let flag = 1;
 function showtoggalCal() {
-    let flag = 1;
     if (flag == 1) {
         calculatorsDatas.style.display = 'block';
         flag = 0;
     } else {
         calculatorsDatas.style.display = 'none';
+        flag = 1;
     }
 }
 
@@ -15,7 +16,7 @@ function toggleCalculator(calculatorId) {
         calculator.style.display = "block";
     } else {
         calculator.style.display = "none";
-        console.log("Hellow")
+
     }
 }
 
