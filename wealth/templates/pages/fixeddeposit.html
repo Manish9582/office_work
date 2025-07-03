@@ -17,7 +17,7 @@
         {% include 'components/leftside.html' %}
       </div>
       <div class="col-start-3 col-end-13 w-full h-[100%] overflow-y-scroll">
-        <div class="sticky top-0 left-0 right-0">
+        <div class="sticky top-0 left-0 right-0 z-50">
           {% include 'components/navbar.html' %}
         </div>
         <!-- end navbar -->
@@ -26,12 +26,12 @@
         <section class="bg-gradient-to-br from-gray-50 to-blue-50">
           <div class="w-full px-4 sm:px-6 lg:px-8">
             <!-- Header -->
-            <div class="flex items-center justify-between py-6">
+            <div class="lg:flex items-center justify-between py-6">
               <div>
                 <p class="bg-[linear-gradient(to_right,green,blue)] bg-clip-text text-transparent text-3xl font-bold">Popular Mutual Funds</p>
                 <p class="text-xl font-medium text-gray-700">Real-time mutual fund data</p>
               </div>
-              <div class="text-center">
+              <div class="lg:text-center lg:mt-0 mt-3.5">
                 <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
               </div>
             </div>

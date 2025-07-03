@@ -24,12 +24,12 @@
 
         <!-- start contents -->
         <div class="px-8">
-          <div class="flex items-center justify-between py-6">
+          <div class="lg:flex items-center justify-between py-6">
             <div>
               <p class="bg-[linear-gradient(to_right,green,blue)] bg-clip-text text-transparent text-3xl font-bold">Insurance Plans</p>
               <p class="text-xl font-medium text-gray-700">Project your future with comprehensive insurance coverage</p>
             </div>
-            <div class="text-center">
+            <div class="lg:text-center lg:mt-0 mt-3.5">
               <a href="/invest" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow inline-block text-nowrap">🌱 START INVESTING</a>
             </div>
           </div>
@@ -217,5 +217,7 @@
         {% include 'components/calculators/surrender.html' %}
       </div>
     </div>
+    <script src="{% static 'js/event.js' %}"></script>
+    <script src="{% static 'js/calculator.js' %}"></script>
   </body>
 </html>
